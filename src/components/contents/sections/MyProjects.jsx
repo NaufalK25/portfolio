@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import SectionTitle from '../SectionTitle';
 import githubLogo from '../../../assets/contacts/github.svg';
 import urlLogo from '../../../assets/url.svg';
@@ -83,18 +83,17 @@ function MyProjects() {
     return stacks;
   }
 
-  useEffect(() => {
-    async function fetchRepo() {
+  (async () => {
+    try {
       const response = await fetch(
         'https://api.github.com/users/naufalk25/repos?sort=created'
       );
-      return await response.json();
+      const repos = await response.json();
+      setRepos(repos);
+    } catch (err) {
+      setRepos([]);
     }
-
-    return async () => {
-      setRepos(await fetchRepo());
-    };
-  }, []);
+  })();
 
   return (
     <section
