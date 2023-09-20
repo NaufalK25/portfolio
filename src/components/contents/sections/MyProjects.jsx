@@ -9,14 +9,30 @@ function MyProjects() {
   function getRepoStacks(repoName) {
     let stacks = [];
     switch (repoName) {
+      case 'portfolio':
+        stacks = ['JavaScript', 'React', 'Vite'];
+        break;
+      case 'pdf-digital-signature':
+        stacks = ['Node.js', 'Express', 'MySQL'];
+        break;
+      case 'endcrypt':
+        stacks = ['TypeScript', 'Webpack'];
+        break;
+      case 'mc-regbeh':
+        stacks = ['Python', 'Flask'];
+        break;
+      case 'secondhand-api':
+        stacks = ['Node.js', 'Express', 'PostgreSQL'];
+        break;
       case 'JavaScriptAlgorithmsandDataStructures':
+      case 'gamiverse-bot':
         stacks = ['JavaScript'];
         break;
       case 'BackEndDevelopmentandAPIs':
         stacks = ['JavaScript', 'Node.js', 'Express', 'MongoDB'];
         break;
       case 'travdir-api':
-        stacks = ['TypeScript', 'Node.js', 'Express', 'MongoDB', 'Heroku'];
+        stacks = ['TypeScript', 'Node.js', 'Express', 'MongoDB'];
         break;
       case 'img-converter':
         stacks = [
@@ -24,18 +40,16 @@ function MyProjects() {
           'TypeScript',
           'Node.js',
           'Express',
-          'MongoDB',
-          'Heroku'
+          'MongoDB'
         ];
         break;
-      case 'portfolio':
+      case 'old-portfolio':
         stacks = [
           'Tailwind CSS',
           'TypeScript',
           'Node.js',
           'Express',
-          'MongoDB',
-          'Heroku'
+          'MongoDB'
         ];
         break;
       case 'todo-app':
@@ -47,11 +61,11 @@ function MyProjects() {
           'PostgreSQL'
         ];
         break;
-      case 'hangman':
+      case 'hangnimal':
         stacks = ['TypeScript'];
         break;
       case 'user-game-api':
-        stacks = ['Bootstrap', 'Node.js', 'Express', 'PostgreSQL', 'Heroku'];
+        stacks = ['Bootstrap', 'Node.js', 'Express', 'PostgreSQL'];
         break;
       case 'apache2-nodejs':
         stacks = ['Node.js', 'Express', 'Apache2'];
@@ -60,7 +74,7 @@ function MyProjects() {
         stacks = ['C#', 'Unity'];
         break;
       case 'foodgallery':
-        stacks = ['Bootstrap', 'PHP', 'CodeIgniter', 'MySQL', 'Heroku'];
+        stacks = ['Bootstrap', 'PHP', 'CodeIgniter', 'MySQL'];
         break;
       default:
         stacks = [];
@@ -118,7 +132,7 @@ function MyProjects() {
                 <section
                   className='h-60 flex items-end justify-between w-full px-3 pb-3 bg-cover bg-center bg-no-repeat'
                   style={{
-                    backgroundImage: `url(img/repositories/${repo.name}.png)`
+                    backgroundImage: `url(img/repositories/${repo.name}.jpg)`
                   }}
                 >
                   <section className='flex gap-x-2 bg-gray-300 rounded-md p-1.5 shadow-lg shadow-gray-500/50 text-slate-800 dark:text-slate-800'>

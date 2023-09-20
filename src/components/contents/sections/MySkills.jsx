@@ -14,6 +14,7 @@ import postgresqlLogo from '../../../assets/skills/postgresql.svg';
 import postmanLogo from '../../../assets/skills/postman.svg';
 import tailwindcssLogo from '../../../assets/skills/tailwindcss.svg';
 import typescriptLogo from '../../../assets/skills/typescript.svg';
+import webpackLogo from '../../../assets/skills/webpack.svg';
 
 function MySkills() {
   const skills = [
@@ -99,6 +100,10 @@ function MySkills() {
         {
           name: 'Postman',
           svg: postmanLogo
+        },
+        {
+          name: 'Webpack',
+          svg: webpackLogo
         }
       ]
     }
