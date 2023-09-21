@@ -3,10 +3,10 @@ import SectionTitle from '../SectionTitle';
 import githubLogo from '../../../assets/contacts/github.svg';
 import urlLogo from '../../../assets/url.svg';
 
-function MyProjects() {
+const MyProjects = () => {
   const [repos, setRepos] = useState([]);
 
-  function getRepoStacks(repoName) {
+  const getRepoStacks = repoName => {
     let stacks = [];
     switch (repoName) {
       case 'portfolio':
@@ -81,7 +81,7 @@ function MyProjects() {
         break;
     }
     return stacks;
-  }
+  };
 
   (async () => {
     try {
@@ -195,6 +195,6 @@ function MyProjects() {
       )}
     </section>
   );
-}
+};
 
 export default MyProjects;

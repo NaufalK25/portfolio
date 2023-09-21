@@ -4,7 +4,7 @@ import Download from './contents/sections/Download';
 import MyProjects from './contents/sections/MyProjects';
 import MySkills from './contents/sections/MySkills';
 
-function Content() {
+const Content = () => {
   return (
     <main className='flex-1 mt-32'>
       <ScrollToTopButton />
@@ -14,6 +14,6 @@ function Content() {
       <Download />
     </main>
   );
-}
+};
 
 export default Content;

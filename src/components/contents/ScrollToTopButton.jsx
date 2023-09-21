@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
-function ScrollToTopButton() {
+const ScrollToTopButton = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    function handleScroll() {
+    const handleScroll = () => {
       setShowButton(
         document.body.scrollTop > innerHeight / 3 ||
           document.documentElement.scrollTop > innerHeight / 3
       );
-    }
+    };
 
     addEventListener('scroll', handleScroll);
 
@@ -18,12 +18,12 @@ function ScrollToTopButton() {
     };
   });
 
-  function handleClick() {
+  const handleClick = () => {
     scrollTo({
       top: 0,
       behavior: 'smooth'
     });
-  }
+  };
 
   return (
     showButton && (
@@ -48,6 +48,6 @@ function ScrollToTopButton() {
       </button>
     )
   );
-}
+};
 
 export default ScrollToTopButton;

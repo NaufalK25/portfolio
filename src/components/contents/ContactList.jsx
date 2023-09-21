@@ -7,7 +7,7 @@ import replitLogo from '../../assets/contacts/replit.svg';
 import twitterLogo from '../../assets/contacts/twitter.svg';
 import whatsAppLogo from '../../assets/contacts/whatsapp.svg';
 
-function ContactList() {
+const ContactList = () => {
   const contacts = [
     {
       name: 'GitHub',
@@ -77,6 +77,6 @@ function ContactList() {
       ))}
     </section>
   );
-}
+};
 
 export default ContactList;

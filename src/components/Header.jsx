@@ -1,63 +1,57 @@
 import { useState, useEffect } from 'react';
 import DownloadCVButton from './DownloadCVButton';
 
-function Header() {
+const Header = () => {
   const [mode, setMode] = useState(() => {
-    const savedMode = localStorage.getItem('mode');
-    return savedMode || 'light';
+    return localStorage.getItem('mode') || 'light';
   });
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
 
   useEffect(() => {
     const htmlElement = document.documentElement;
-    const switcher = document.querySelector('#switcher');
 
     if (mode === 'dark') {
       htmlElement.classList.add('dark');
       htmlElement.classList.remove('light');
-      switcher.classList.add('translate-x-5');
-      switcher.title = 'Switch to Light Mode';
     } else {
       htmlElement.classList.add('light');
       htmlElement.classList.remove('dark');
-      switcher.classList.remove('translate-x-5');
-      switcher.title = 'Switch to Dark Mode';
     }
 
     localStorage.setItem('mode', mode);
   }, [mode]);
 
-  function handleNavHamburgerClick() {
+  const handleNavHamburgerClick = () => {
     setIsNavMenuOpen(prevIsOpen => !prevIsOpen);
-  }
+  };
 
-  function handleNavAboutMeClick() {
+  const handleNavAboutMeClick = () => {
     const aboutMeSection = document.querySelector('section#about-me');
     scrollTo({
       top: aboutMeSection.offsetTop - 25,
       behavior: 'smooth'
     });
-  }
+  };
 
-  function handleNavMySkillsClick() {
+  const handleNavMySkillsClick = () => {
     const mySkilsSection = document.querySelector('section#my-skills');
     scrollTo({
       top: mySkilsSection.offsetTop - 25,
       behavior: 'smooth'
     });
-  }
+  };
 
-  function handleNavMyProjectsClick() {
+  const handleNavMyProjectsClick = () => {
     const myProjectsSection = document.querySelector('section#my-projects');
     scrollTo({
       top: myProjectsSection.offsetTop - 25,
       behavior: 'smooth'
     });
-  }
+  };
 
-  function handleModeToggleClick() {
+  const handleModeToggleClick = () => {
     setMode(prevMode => (prevMode === 'dark' ? 'light' : 'dark'));
-  }
+  };
 
   return (
     <header>
@@ -131,7 +125,9 @@ function Header() {
           >
             <div
               id='switcher'
-              className='w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 cursor-pointer'
+              className={`${
+                mode === 'dark' && 'translate-x-5'
+              } w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 cursor-pointer`}
               title={`Switch to ${mode === 'dark' ? 'Light' : 'Dark'} Mode`}
               onClick={handleModeToggleClick}
             ></div>
@@ -140,6 +136,6 @@ function Header() {
       </nav>
     </header>
   );
-}
+};
 
 export default Header;

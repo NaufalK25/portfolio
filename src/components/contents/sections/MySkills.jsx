@@ -16,7 +16,7 @@ import tailwindcssLogo from '../../../assets/skills/tailwindcss.svg';
 import typescriptLogo from '../../../assets/skills/typescript.svg';
 import webpackLogo from '../../../assets/skills/webpack.svg';
 
-function MySkills() {
+const MySkills = () => {
   const skills = [
     {
       name: 'Programming Language',
@@ -143,6 +143,6 @@ function MySkills() {
       </section>
     </section>
   );
-}
+};
 
 export default MySkills;

@@ -1,6 +1,6 @@
 import ContactList from '../ContactList';
 
-function AboutMe() {
+const AboutMe = () => {
   return (
     <section
       id='about-me'
@@ -36,6 +36,6 @@ function AboutMe() {
       </section>
     </section>
   );
-}
+};
 
 export default AboutMe;
