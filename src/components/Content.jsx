@@ -1,6 +1,6 @@
 import ScrollToTopButton from './contents/ScrollToTopButton';
 import AboutMe from './contents/sections/AboutMe';
-import Download from './contents/sections/Download';
+import DownloadCV from './contents/sections/DownloadCV';
 import MyProjects from './contents/sections/MyProjects';
 import MySkills from './contents/sections/MySkills';
 
@@ -11,7 +11,7 @@ const Content = () => {
       <AboutMe />
       <MySkills />
       <MyProjects />
-      <Download />
+      <DownloadCV />
     </main>
   );
 };
