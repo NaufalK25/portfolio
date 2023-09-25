@@ -30,7 +30,6 @@ const ScrollToTopButton = () => {
       <button
         title='Back to Top'
         className='fixed shadow-lg right-5 bottom-5 z-10 cursor-pointer bg-slate-800 dark:bg-slate-200 rounded-full p-2'
-        id='scroll-to-top'
         onClick={handleClick}
       >
         <svg

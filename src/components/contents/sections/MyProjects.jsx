@@ -67,10 +67,7 @@ const MyProjects = () => {
     >
       <SectionTitle title='My Projects' />
       {repos && (
-        <section
-          id='my-project-list'
-          className='flex text-center gap-10 flex-wrap w-full justify-center'
-        >
+        <section className='flex text-center gap-10 flex-wrap w-full justify-center'>
           {repos
             .filter(repo => repoNameFilter.includes(repo.name))
             .map(repo => (
@@ -79,7 +76,7 @@ const MyProjects = () => {
                 className='lg:w-1/4 w-3/4 md:w-1/3 gap-y-3 flex flex-col items-center py-1.5'
               >
                 <TopSection repo={repo} />
-                <MiddlleSection repo={repo} />
+                <MiddleSection repo={repo} />
                 <BottomSection repo={repo} />
               </section>
             ))}
@@ -108,7 +105,7 @@ const TopSection = ({ repo }) => {
   );
 };
 
-const MiddlleSection = ({ repo }) => {
+const MiddleSection = ({ repo }) => {
   return (
     <section
       className='h-60 flex items-end justify-end w-full px-3 pb-3 bg-cover bg-center bg-no-repeat'

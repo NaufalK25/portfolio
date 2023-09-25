@@ -71,7 +71,6 @@ const Header = () => {
           <section
             className='md:hidden flex cursor-pointer'
             title='Navigation Bar'
-            id='nav-hamburger'
             onClick={handleNavHamburgerClick}
           >
             <svg
@@ -92,10 +91,8 @@ const Header = () => {
           className={`${
             isNavMenuOpen ? 'flex' : 'hidden'
           } md:flex flex-col md:flex-row items-center gap-4`}
-          id='nav-menu'
         >
           <p
-            id='nav-about-me'
             title='About Me'
             className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
             onClick={handleNavAboutMeClick}
@@ -103,7 +100,6 @@ const Header = () => {
             About Me
           </p>
           <p
-            id='nav-my-skills'
             title='My Skills'
             className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
             onClick={handleNavMySkillsClick}
@@ -111,7 +107,6 @@ const Header = () => {
             My Skills
           </p>
           <p
-            id='nav-my-projects'
             title='My Projects'
             className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
             onClick={handleNavMyProjectsClick}
@@ -119,12 +114,8 @@ const Header = () => {
             My Projects
           </p>
           <DownloadCVButton />
-          <div
-            id='switcher-container'
-            className='w-10 h-5 rounded-full bg-slate-800 dark:bg-slate-100'
-          >
+          <div className='w-10 h-5 rounded-full bg-slate-800 dark:bg-slate-100'>
             <div
-              id='switcher'
               className={`${
                 mode === 'dark' && 'translate-x-5'
               } w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 cursor-pointer`}
