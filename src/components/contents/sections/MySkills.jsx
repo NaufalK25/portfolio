@@ -1,10 +1,10 @@
 import SectionTitle from '../SectionTitle';
+import githubLogo from '../../../assets/contacts/github.svg';
+import gitlabLogo from '../../../assets/contacts/gitlab.svg';
 import bootstrapLogo from '../../../assets/skills/bootstrap.svg';
 import css3Logo from '../../../assets/skills/css3.svg';
 import expressLogo from '../../../assets/skills/express.svg';
 import gitLogo from '../../../assets/skills/git.svg';
-import githubLogo from '../../../assets/skills/github.svg';
-import gitlabLogo from '../../../assets/skills/gitlab.svg';
 import html5Logo from '../../../assets/skills/html5.svg';
 import javascriptLogo from '../../../assets/skills/javascript.svg';
 import mongodbLogo from '../../../assets/skills/mongodb.svg';
@@ -126,10 +126,7 @@ const MySkills = () => {
             <ul className='flex gap-x-3 flex-row bg-slate-400 dark:bg-slate-300 p-1.5 rounded-md shadow-lg'>
               {skill.stacks.map(stack => (
                 <li key={stack.name}>
-                  <p
-                    title={stack.name}
-                    className='cursor-pointer'
-                  >
+                  <p title={stack.name}>
                     <img
                       src={stack.svg}
                       alt={stack.name}
