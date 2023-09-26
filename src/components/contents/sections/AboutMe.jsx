@@ -30,7 +30,7 @@ const AboutMe = () => {
             src='img/muhammad-naufal-kateni.jpg'
             alt='Muhammad Naufal Kateni'
             title='Muhammad Naufal Kateni'
-            className='rounded-full'
+            className='rounded-b-full'
           />
         </a>
       </section>
