@@ -89,13 +89,13 @@ const MyProjects = () => {
 const TopSection = ({ repo }) => {
   return (
     <section className='flex justify-between w-full px-3 pt-1.5'>
-      <h4 className='text-sm font-bold text-slate-800 dark:text-slate-100'>
+      <h4 className='text-sm font-bold text-slate-800 dark:text-slate-200'>
         {repo.name}
       </h4>
       {repo.license && (
         <a
           href={repo.license.url}
-          className='text-sm hover:underline hover:font-bold active:font-bold focus:font-bold text-slate-800 dark:text-slate-100'
+          className='text-sm hover:underline hover:font-bold active:font-bold focus:font-bold text-slate-800 dark:text-slate-200'
           title={repo.license.name}
         >
           {repo.license.name}
@@ -254,12 +254,12 @@ const BottomSection = ({ repo }) => {
   return (
     <section className='p-1 flex flex-col gap-y-3'>
       {repo.description && (
-        <p className='text-sm text-slate-800 dark:text-slate-100'>
+        <p className='text-sm text-slate-800 dark:text-slate-200'>
           {repo.description}
         </p>
       )}
       <section className='flex justify-center'>
-        <section className='flex w-fit gap-x-2 bg-gray-300 p-1.5 rounded-md shadow-lg shadow-gray-500/50'>
+        <section className='flex gap-x-3 flex-row bg-slate-400 dark:bg-slate-300 p-1.5 rounded-md shadow-lg'>
           {getRepoStacks(repo.name).map(stack => (
             <img
               key={`${repo.name}-${stack.name}`}
