@@ -6,20 +6,20 @@ const ScrollToTopButton = () => {
   useEffect(() => {
     const handleScroll = () => {
       setShowButton(
-        document.body.scrollTop > innerHeight / 3 ||
-          document.documentElement.scrollTop > innerHeight / 3
+        document.body.scrollTop > window.innerHeight / 3 ||
+          document.documentElement.scrollTop > window.innerHeight / 3
       );
     };
 
-    addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   });
 
   const handleClick = () => {
-    scrollTo({
+    window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });

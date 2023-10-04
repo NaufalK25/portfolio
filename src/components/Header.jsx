@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import DownloadCVButton from './DownloadCVButton';
-import darkModeLogo from '../assets/dark-mode.svg';
-import lightModeLogo from '../assets/light-mode.svg';
 
-const Header = () => {
-  const [mode, setMode] = useState(() => {
-    return localStorage.getItem('mode') || 'light';
-  });
+const Header = ({ refs, onNavClick }) => {
+  const [mode, setMode] = useState(
+    () => localStorage.getItem('mode') || 'light'
+  );
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -25,30 +23,6 @@ const Header = () => {
 
   const handleNavHamburgerClick = () => {
     setIsNavMenuOpen(prevIsOpen => !prevIsOpen);
-  };
-
-  const handleNavAboutMeClick = () => {
-    const aboutMeSection = document.querySelector('section#about-me');
-    scrollTo({
-      top: aboutMeSection.offsetTop - 25,
-      behavior: 'smooth'
-    });
-  };
-
-  const handleNavMySkillsClick = () => {
-    const mySkilsSection = document.querySelector('section#my-skills');
-    scrollTo({
-      top: mySkilsSection.offsetTop - 25,
-      behavior: 'smooth'
-    });
-  };
-
-  const handleNavMyProjectsClick = () => {
-    const myProjectsSection = document.querySelector('section#my-projects');
-    scrollTo({
-      top: myProjectsSection.offsetTop - 25,
-      behavior: 'smooth'
-    });
   };
 
   const handleModeToggleClick = () => {
@@ -97,21 +71,21 @@ const Header = () => {
           <p
             title='About Me'
             className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
-            onClick={handleNavAboutMeClick}
+            onClick={() => onNavClick(refs.aboutMeRef)}
           >
             About Me
           </p>
           <p
             title='My Skills'
             className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
-            onClick={handleNavMySkillsClick}
+            onClick={() => onNavClick(refs.mySkillsRef)}
           >
             My Skills
           </p>
           <p
             title='My Projects'
             className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
-            onClick={handleNavMyProjectsClick}
+            onClick={() => onNavClick(refs.myProjectsRef)}
           >
             My Projects
           </p>

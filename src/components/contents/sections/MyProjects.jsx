@@ -17,7 +17,7 @@ import typescriptLogo from '../../../assets/skills/typescript.svg';
 import webpackLogo from '../../../assets/skills/webpack.svg';
 import viteLogo from '../../../assets/skills/vite.svg';
 
-const MyProjects = () => {
+const MyProjects = ({ componentRef }) => {
   const [repos, setRepos] = useState([]);
   const repoNameFilter = [
     'portfolio',
@@ -62,8 +62,8 @@ const MyProjects = () => {
 
   return (
     <section
-      id='my-projects'
       className='flex justify-center mt-24 flex-col items-center gap-y-10'
+      ref={componentRef}
     >
       <SectionTitle title='My Projects' />
       {repos && (

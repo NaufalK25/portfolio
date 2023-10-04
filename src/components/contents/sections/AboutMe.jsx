@@ -1,10 +1,10 @@
 import ContactList from '../ContactList';
 
-const AboutMe = () => {
+const AboutMe = ({ componentRef }) => {
   return (
     <section
-      id='about-me'
       className='flex flex-col-reverse lg:flex-row items-center gap-y-5'
+      ref={componentRef}
     >
       <section className='flex flex-col lg:w-1/2 gap-y-3 justify-center items-center px-10 text-slate-800 dark:text-slate-200'>
         <h3 className='text-2xl font-bold text-center'>
