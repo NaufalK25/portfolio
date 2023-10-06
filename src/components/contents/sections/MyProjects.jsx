@@ -2,23 +2,11 @@ import { useEffect, useState } from 'react';
 import SectionTitle from '../SectionTitle';
 import githubLogo from '../../../assets/contacts/github.svg';
 import urlLogo from '../../../assets/url.svg';
-import bootstrapLogo from '../../../assets/skills/bootstrap.svg';
-import codeigniterLogo from '../../../assets/skills/codeigniter.svg';
-import expressLogo from '../../../assets/skills/express.svg';
-import javascriptLogo from '../../../assets/skills/javascript.svg';
-import mongodbLogo from '../../../assets/skills/mongodb.svg';
-import mysqlLogo from '../../../assets/skills/mysql.svg';
-import nodejsLogo from '../../../assets/skills/nodejs.svg';
-import phpLogo from '../../../assets/skills/php.svg';
-import postgresqlLogo from '../../../assets/skills/postgresql.svg';
-import reactLogo from '../../../assets/skills/react.svg';
-import tailwindcssLogo from '../../../assets/skills/tailwindcss.svg';
-import typescriptLogo from '../../../assets/skills/typescript.svg';
-import webpackLogo from '../../../assets/skills/webpack.svg';
-import viteLogo from '../../../assets/skills/vite.svg';
+import { getRepoStacks } from '../../../utils/data';
 
 const MyProjects = ({ componentRef }) => {
   const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(false);
   const repoNameFilter = [
     'portfolio',
     'pdf-digital-signature',
@@ -38,6 +26,7 @@ const MyProjects = ({ componentRef }) => {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
+        setLoading(true);
         const userResponse = await fetch(
           'https://api.github.com/users/naufalk25/repos'
         );
@@ -52,6 +41,7 @@ const MyProjects = ({ componentRef }) => {
           .filter(repo => repoNameFilter.includes(repo.name))
           .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
         setRepos(repos);
+        setLoading(false);
       } catch (err) {
         setRepos([]);
       }
@@ -66,6 +56,31 @@ const MyProjects = ({ componentRef }) => {
       ref={componentRef}
     >
       <SectionTitle title='My Projects' />
+      {loading && (
+        <div className='flex items-center'>
+          <svg
+            className='animate-spin -ml-1 mr-3 h-5 w-5 text-slate-800 dark:text-slate-200'
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+          >
+            <circle
+              className='opacity-25'
+              cx='12'
+              cy='12'
+              r='10'
+              stroke='currentColor'
+              strokeWidth='4'
+            ></circle>
+            <path
+              className='opacity-75'
+              fill='currentColor'
+              d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
+            ></path>
+          </svg>
+          <p>Fetching repos...</p>
+        </div>
+      )}
       {repos && (
         <section className='flex text-center gap-10 flex-wrap w-full justify-center'>
           {repos
@@ -146,111 +161,6 @@ const MiddleSection = ({ repo }) => {
 };
 
 const BottomSection = ({ repo }) => {
-  const getRepoStacks = repoName => {
-    let stacks = [];
-    switch (repoName) {
-      case 'portfolio':
-        stacks = [
-          { logo: javascriptLogo, name: 'JavaScript' },
-          { logo: reactLogo, name: 'React' },
-          { logo: viteLogo, name: 'Vite' }
-        ];
-        break;
-      case 'pdf-digital-signature':
-        stacks = [
-          { logo: nodejsLogo, name: 'Node.js' },
-          { logo: expressLogo, name: 'Express' },
-          { logo: mysqlLogo, name: 'MySQL' }
-        ];
-        break;
-      case 'endcrypt':
-        stacks = [
-          { logo: typescriptLogo, name: 'TypeScript' },
-          { logo: webpackLogo, name: 'Webpack' }
-        ];
-        break;
-      case 'secondhand-api':
-        stacks = [
-          { logo: nodejsLogo, name: 'Node.js' },
-          { logo: expressLogo, name: 'Express' },
-          { logo: postgresqlLogo, name: 'PostgreSQL' }
-        ];
-        break;
-      case 'user-game-api':
-        stacks = [
-          { logo: bootstrapLogo, name: 'Bootstrap' },
-          { logo: nodejsLogo, name: 'Node.js' },
-          { logo: expressLogo, name: 'Express' },
-          { logo: postgresqlLogo, name: 'PostgreSQL' }
-        ];
-        break;
-      case 'hangnimal':
-        stacks = [{ logo: typescriptLogo, name: 'TypeScript' }];
-        break;
-      case 'todo-app':
-        stacks = [
-          { logo: tailwindcssLogo, name: 'Tailwind CSS' },
-          { logo: typescriptLogo, name: 'TypeScript' },
-          { logo: nodejsLogo, name: 'Node.js' },
-          { logo: expressLogo, name: 'Express' },
-          { logo: postgresqlLogo, name: 'PostgreSQL' }
-        ];
-        break;
-      case 'old-portfolio':
-        stacks = [
-          { logo: tailwindcssLogo, name: 'Tailwind CSS' },
-          { logo: typescriptLogo, name: 'TypeScript' },
-          { logo: nodejsLogo, name: 'Node.js' },
-          { logo: expressLogo, name: 'Express' },
-          { logo: mongodbLogo, name: 'MongoDB' }
-        ];
-        break;
-      case 'img-converter':
-        stacks = [
-          { logo: tailwindcssLogo, name: 'Tailwind CSS' },
-          { logo: typescriptLogo, name: 'TypeScript' },
-          { logo: nodejsLogo, name: 'Node.js' },
-          { logo: expressLogo, name: 'Express' },
-          { logo: mongodbLogo, name: 'MongoDB' }
-        ];
-        break;
-      case 'travdir-api':
-        stacks = [
-          { logo: typescriptLogo, name: 'TypeScript' },
-          { logo: nodejsLogo, name: 'Node.js' },
-          { logo: expressLogo, name: 'Express' },
-          { logo: mongodbLogo, name: 'MongoDB' }
-        ];
-        break;
-      case 'foodgallery':
-        stacks = [
-          { logo: bootstrapLogo, name: 'Bootstrap' },
-          { logo: phpLogo, name: 'PHP' },
-          { logo: codeigniterLogo, name: 'CodeIgniter' },
-          { logo: mysqlLogo, name: 'MySQL' }
-        ];
-        break;
-      case 'poltekkespalembang':
-        stacks = [
-          { logo: phpLogo, name: 'PHP' },
-          { logo: codeigniterLogo, name: 'CodeIgniter' },
-          { logo: postgresqlLogo, name: 'PostgreSQL' }
-        ];
-        break;
-      case 'priplan-server':
-        stacks = [
-          { logo: nodejsLogo, name: 'Node.js' },
-          { logo: expressLogo, name: 'Express' },
-          { logo: mongodbLogo, name: 'MongoDB' }
-        ];
-        break;
-      default:
-        stacks = [];
-        break;
-    }
-    return stacks;
-  };
-
   return (
     <section className='p-1 flex flex-col gap-y-3'>
       {repo.description && (
