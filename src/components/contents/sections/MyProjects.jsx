@@ -9,6 +9,7 @@ const MyProjects = ({ componentRef }) => {
   const [loading, setLoading] = useState(false);
   const repoNameFilter = [
     'portfolio',
+    'anime-episode-tracker',
     'pdf-digital-signature',
     'endcrypt',
     'secondhand-api',

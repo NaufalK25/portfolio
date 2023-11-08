@@ -173,7 +173,16 @@ export const getRepoStacks = repoName => {
   switch (repoName) {
     case 'portfolio':
       stacks = [
+        { logo: tailwindcssLogo, name: 'Tailwind CSS' },
         { logo: javascriptLogo, name: 'JavaScript' },
+        { logo: reactLogo, name: 'React' },
+        { logo: viteLogo, name: 'Vite' }
+      ];
+      break;
+    case 'anime-episode-tracker':
+      stacks = [
+        { logo: tailwindcssLogo, name: 'Tailwind CSS' },
+        { logo: typescriptLogo, name: 'TypeScript' },
         { logo: reactLogo, name: 'React' },
         { logo: viteLogo, name: 'Vite' }
       ];
