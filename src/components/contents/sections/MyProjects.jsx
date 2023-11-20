@@ -6,6 +6,8 @@ import { getRepoStacks } from '../../../utils/data';
 
 const MyProjects = ({ componentRef }) => {
   const [repos, setRepos] = useState([]);
+  const [showedRepos, setShowedRepos] = useState(3);
+  const [totalRepos, setTotalRepos] = useState(0);
   const [loading, setLoading] = useState(false);
   const repoNameFilter = [
     'portfolio',
@@ -43,6 +45,7 @@ const MyProjects = ({ componentRef }) => {
           .filter(repo => repoNameFilter.includes(repo.name))
           .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
         setRepos(repos);
+        setTotalRepos(repos.length);
         setLoading(false);
       } catch (err) {
         setRepos([]);
@@ -51,6 +54,14 @@ const MyProjects = ({ componentRef }) => {
 
     fetchRepos();
   }, []);
+
+  const handleLoadMoreBtnClick = () => {
+    setShowedRepos(prevState => prevState + 3);
+  };
+
+  const handleCollapseBtnClick = () => {
+    setShowedRepos(3);
+  };
 
   return (
     <section
@@ -85,19 +96,32 @@ const MyProjects = ({ componentRef }) => {
       )}
       {repos && (
         <section className='flex text-center gap-10 flex-wrap w-full justify-center'>
-          {repos
-            .filter(repo => repoNameFilter.includes(repo.name))
-            .map(repo => (
-              <section
-                key={repo.name}
-                className='lg:w-1/4 w-3/4 md:w-1/3 gap-y-3 flex flex-col items-center py-1.5 justify-between'
-              >
-                <TopSection repo={repo} />
-                <MiddleSection repo={repo} />
-                <BottomSection repo={repo} />
-              </section>
-            ))}
+          {repos.slice(0, showedRepos).map(repo => (
+            <section
+              key={repo.name}
+              className='lg:w-1/4 w-3/4 md:w-1/3 gap-y-3 flex flex-col items-center py-1.5 justify-between'
+            >
+              <TopSection repo={repo} />
+              <MiddleSection repo={repo} />
+              <BottomSection repo={repo} />
+            </section>
+          ))}
         </section>
+      )}
+      {showedRepos < totalRepos ? (
+        <p
+          className='border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 hover:border-slate-700 dark:hover:border-slate-300 hover:text-slate-700 dark:hover:text-slate-300 hover:font-bold'
+          onClick={handleLoadMoreBtnClick}
+        >
+          Load More
+        </p>
+      ) : (
+        <p
+          className='border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 hover:border-slate-700 dark:hover:border-slate-300 hover:text-slate-700 dark:hover:text-slate-300 hover:font-bold'
+          onClick={handleCollapseBtnClick}
+        >
+          Collapse
+        </p>
       )}
     </section>
   );
