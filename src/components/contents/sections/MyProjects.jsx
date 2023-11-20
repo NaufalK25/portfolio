@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import SectionTitle from '../SectionTitle';
 import githubLogo from '../../../assets/contacts/github.svg';
+import expandLessLogo from '../../../assets/expand-less.svg';
+import expandMoreLogo from '../../../assets/expand-more.svg';
 import urlLogo from '../../../assets/url.svg';
 import { getRepoStacks } from '../../../utils/data';
 
@@ -109,19 +111,35 @@ const MyProjects = ({ componentRef }) => {
         </section>
       )}
       {showedRepos < totalRepos ? (
-        <p
-          className='border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 hover:border-slate-700 dark:hover:border-slate-300 hover:text-slate-700 dark:hover:text-slate-300 hover:font-bold'
+        <div
+          className='flex items-center gap-x-1 border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 fill-slate-800 dark:fill-slate-200'
           onClick={handleLoadMoreBtnClick}
         >
-          Load More
-        </p>
+          <p>Load More</p>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            height='24'
+            viewBox='0 -960 960 960'
+            width='24'
+          >
+            <path d='M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z' />
+          </svg>
+        </div>
       ) : (
-        <p
-          className='border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 hover:border-slate-700 dark:hover:border-slate-300 hover:text-slate-700 dark:hover:text-slate-300 hover:font-bold'
+        <div
+          className='flex items-center gap-x-1 border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 fill-slate-800 dark:fill-slate-200'
           onClick={handleCollapseBtnClick}
         >
-          Collapse
-        </p>
+          <p>Collapse</p>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            height='24'
+            viewBox='0 -960 960 960'
+            width='24'
+          >
+            <path d='m296-345-56-56 240-240 240 240-56 56-184-184-184 184Z' />
+          </svg>
+        </div>
       )}
     </section>
   );
