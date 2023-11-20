@@ -10,6 +10,7 @@ const MyProjects = ({ componentRef }) => {
   const repoNameFilter = [
     'portfolio',
     'anime-episode-tracker',
+    'bookmark-api',
     'pdf-digital-signature',
     'endcrypt',
     'secondhand-api',
@@ -89,7 +90,7 @@ const MyProjects = ({ componentRef }) => {
             .map(repo => (
               <section
                 key={repo.name}
-                className='lg:w-1/4 w-3/4 md:w-1/3 gap-y-3 flex flex-col items-center py-1.5'
+                className='lg:w-1/4 w-3/4 md:w-1/3 gap-y-3 flex flex-col items-center py-1.5 justify-between'
               >
                 <TopSection repo={repo} />
                 <MiddleSection repo={repo} />

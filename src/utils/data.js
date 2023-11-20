@@ -6,12 +6,14 @@ import gitLogo from '../assets/skills/git.svg';
 import githubLogo from '../assets/contacts/github.svg';
 import gitlabLogo from '../assets/contacts/gitlab.svg';
 import gmailLogo from '../assets/contacts/gmail.svg';
+import graphqlLogo from '../assets/skills/graphql.svg';
 import html5Logo from '../assets/skills/html5.svg';
 import instagramLogo from '../assets/contacts/instagram.svg';
 import javascriptLogo from '../assets/skills/javascript.svg';
 import linkedInLogo from '../assets/contacts/linkedin.svg';
 import mongodbLogo from '../assets/skills/mongodb.svg';
 import mysqlLogo from '../assets/skills/mysql.svg';
+import nestjsLogo from '../assets/skills/nestjs.svg';
 import nodejsLogo from '../assets/skills/nodejs.svg';
 import phpLogo from '../assets/skills/php.svg';
 import postgresqlLogo from '../assets/skills/postgresql.svg';
@@ -121,7 +123,11 @@ export const skills = [
       {
         name: 'Express',
         svg: expressLogo
-      }
+      },
+      {
+        name: 'NestJS',
+        svg: nestjsLogo
+      },
     ]
   },
   {
@@ -149,21 +155,13 @@ export const skills = [
         svg: gitLogo
       },
       {
-        name: 'GitHub',
-        svg: githubLogo
-      },
-      {
-        name: 'GitLab',
-        svg: gitlabLogo
-      },
-      {
         name: 'Postman',
         svg: postmanLogo
       },
       {
-        name: 'Webpack',
-        svg: webpackLogo
-      }
+        name: 'GraphQL',
+        svg: graphqlLogo
+      },
     ]
   }
 ];
@@ -185,6 +183,14 @@ export const getRepoStacks = repoName => {
         { logo: typescriptLogo, name: 'TypeScript' },
         { logo: reactLogo, name: 'React' },
         { logo: viteLogo, name: 'Vite' }
+      ];
+      break;
+    case 'bookmark-api':
+      stacks = [
+        { logo: typescriptLogo, name: 'TypeScript' },
+        { logo: nestjsLogo, name: 'NestJS' },
+        { logo: graphqlLogo, name: 'GraphQL' },
+        { logo: postgresqlLogo, name: 'PostgreSQL' }
       ];
       break;
     case 'pdf-digital-signature':
