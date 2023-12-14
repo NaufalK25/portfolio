@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import SectionTitle from '../SectionTitle';
 import githubLogo from '../../../assets/contacts/github.svg';
-import expandLessLogo from '../../../assets/expand-less.svg';
-import expandMoreLogo from '../../../assets/expand-more.svg';
 import urlLogo from '../../../assets/url.svg';
 import { getRepoStacks } from '../../../utils/data';
 
@@ -12,21 +10,18 @@ const MyProjects = ({ componentRef }) => {
   const [totalRepos, setTotalRepos] = useState(0);
   const [loading, setLoading] = useState(false);
   const repoNameFilter = [
-    'portfolio',
     'anime-episode-tracker',
     'bookmark-api',
-    'pdf-digital-signature',
     'endcrypt',
-    'secondhand-api',
-    'user-game-api',
-    'hangnimal',
-    'todo-app',
-    'old-portfolio',
-    'img-converter',
-    'travdir-api',
     'foodgallery',
+    'news-portal',
+    'pdf-digital-signature',
     'poltekkespalembang',
-    'priplan-server'
+    'portfolio',
+    'priplan-server',
+    'secondhand-api',
+    'travdir-api',
+    'user-game-api'
   ];
 
   useEffect(() => {
@@ -67,38 +62,46 @@ const MyProjects = ({ componentRef }) => {
 
   return (
     <section
-      className='flex justify-center mt-24 flex-col items-center gap-y-10'
+      className='flex justify-center mt-24 flex-col items-center gap-y-10 bg-slate-200 text-slate-800 dark:bg-gray-800 dark:text-slate-100'
       ref={componentRef}
     >
       <SectionTitle title='My Projects' />
-      {loading && (
-        <div className='flex items-center'>
-          <svg
-            className='animate-spin -ml-1 mr-3 h-5 w-5 text-slate-800 dark:text-slate-200'
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-          >
-            <circle
-              className='opacity-25'
-              cx='12'
-              cy='12'
-              r='10'
-              stroke='currentColor'
-              strokeWidth='4'
-            ></circle>
-            <path
-              className='opacity-75'
-              fill='currentColor'
-              d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
-            ></path>
-          </svg>
-          <p>Fetching repos...</p>
-        </div>
-      )}
-      {repos && (
-        <section className='flex text-center gap-10 flex-wrap w-full justify-center'>
-          {repos.slice(0, showedRepos).map(repo => (
+      <section className='flex text-center flex-wrap gap-10 w-full justify-center'>
+        {loading ? (
+          <>
+            <div className='lg:w-1/4 w-3/4 md:w-1/3 gap-y-3 flex flex-col py-1.5 justify-between'>
+              <div className='skeleton h-4 w-full px-3 pt-1.5'></div>
+              <div className='skeleton h-60 w-full px-3 pb-3'></div>
+              <div className='p-1 flex flex-col gap-y-3'>
+                <div className='skeleton h-4 w-full'></div>
+                <div className='flex justify-center'>
+                  <div className='skeleton h-12 w-32'></div>
+                </div>
+              </div>
+            </div>
+            <div className='lg:w-1/4 w-3/4 md:w-1/3 gap-y-3 flex flex-col py-1.5 justify-between'>
+              <div className='skeleton h-4 w-full px-3 pt-1.5'></div>
+              <div className='skeleton h-60 w-full px-3 pb-3'></div>
+              <div className='p-1 flex flex-col gap-y-3'>
+                <div className='skeleton h-4 w-full'></div>
+                <div className='flex justify-center'>
+                  <div className='skeleton h-12 w-32'></div>
+                </div>
+              </div>
+            </div>
+            <div className='lg:w-1/4 w-3/4 md:w-1/3 gap-y-3 flex flex-col py-1.5 justify-between'>
+              <div className='skeleton h-4 w-full px-3 pt-1.5'></div>
+              <div className='skeleton h-60 w-full px-3 pb-3'></div>
+              <div className='p-1 flex flex-col gap-y-3'>
+                <div className='skeleton h-4 w-full'></div>
+                <div className='flex justify-center'>
+                  <div className='skeleton h-12 w-32'></div>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          repos.slice(0, showedRepos).map(repo => (
             <section
               key={repo.name}
               className='lg:w-1/4 w-3/4 md:w-1/3 gap-y-3 flex flex-col items-center py-1.5 justify-between'
@@ -107,10 +110,11 @@ const MyProjects = ({ componentRef }) => {
               <MiddleSection repo={repo} />
               <BottomSection repo={repo} />
             </section>
-          ))}
-        </section>
-      )}
-      {showedRepos < totalRepos ? (
+          ))
+        )}
+      </section>
+
+      {!loading && showedRepos < totalRepos ? (
         <div
           className='flex items-center gap-x-1 border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 fill-slate-800 dark:fill-slate-200'
           onClick={handleLoadMoreBtnClick}

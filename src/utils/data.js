@@ -11,6 +11,7 @@ import html5Logo from '../assets/skills/html5.svg';
 import instagramLogo from '../assets/contacts/instagram.svg';
 import javascriptLogo from '../assets/skills/javascript.svg';
 import linkedInLogo from '../assets/contacts/linkedin.svg';
+import laravelLogo from '../assets/skills/laravel.svg';
 import mongodbLogo from '../assets/skills/mongodb.svg';
 import mysqlLogo from '../assets/skills/mysql.svg';
 import nestjsLogo from '../assets/skills/nestjs.svg';
@@ -35,12 +36,6 @@ export const contacts = [
     svg: githubLogo
   },
   {
-    name: 'GitLab',
-    contact: 'NaufalK25',
-    url: 'https://gitlab.com/NaufalK25',
-    svg: gitlabLogo
-  },
-  {
     name: 'LinkedIn',
     contact: 'Muhammad Naufal kateni',
     url: 'https://www.linkedin.com/in/muhammad-naufal-kateni/',
@@ -51,18 +46,6 @@ export const contacts = [
     contact: 'NaufalK2511',
     url: 'https://twitter.com/NaufalK2511',
     svg: twitterLogo
-  },
-  {
-    name: 'Instagram',
-    contact: 'naufalkateni',
-    url: 'https://www.instagram.com/naufalkateni',
-    svg: instagramLogo
-  },
-  {
-    name: 'Repl.it',
-    contact: '@NaufalK25',
-    url: 'https://replit.com/@NaufalK25',
-    svg: replitLogo
   },
   {
     name: 'GMail',
@@ -89,6 +72,10 @@ export const skills = [
       {
         name: 'TypeScript',
         svg: typescriptLogo
+      },
+      {
+        name: 'PHP',
+        svg: phpLogo
       }
     ]
   },
@@ -128,6 +115,14 @@ export const skills = [
         name: 'NestJS',
         svg: nestjsLogo
       },
+      {
+        name: 'CodeIgniter',
+        svg: codeigniterLogo
+      },
+      {
+        name: 'Laravel',
+        svg: laravelLogo
+      }
     ]
   },
   {
@@ -161,7 +156,7 @@ export const skills = [
       {
         name: 'GraphQL',
         svg: graphqlLogo
-      },
+      }
     ]
   }
 ];
@@ -169,14 +164,6 @@ export const skills = [
 export const getRepoStacks = repoName => {
   let stacks = [];
   switch (repoName) {
-    case 'portfolio':
-      stacks = [
-        { logo: tailwindcssLogo, name: 'Tailwind CSS' },
-        { logo: javascriptLogo, name: 'JavaScript' },
-        { logo: reactLogo, name: 'React' },
-        { logo: viteLogo, name: 'Vite' }
-      ];
-      break;
     case 'anime-episode-tracker':
       stacks = [
         { logo: tailwindcssLogo, name: 'Tailwind CSS' },
@@ -193,70 +180,10 @@ export const getRepoStacks = repoName => {
         { logo: postgresqlLogo, name: 'PostgreSQL' }
       ];
       break;
-    case 'pdf-digital-signature':
-      stacks = [
-        { logo: nodejsLogo, name: 'Node.js' },
-        { logo: expressLogo, name: 'Express' },
-        { logo: mysqlLogo, name: 'MySQL' }
-      ];
-      break;
     case 'endcrypt':
       stacks = [
         { logo: typescriptLogo, name: 'TypeScript' },
         { logo: webpackLogo, name: 'Webpack' }
-      ];
-      break;
-    case 'secondhand-api':
-      stacks = [
-        { logo: nodejsLogo, name: 'Node.js' },
-        { logo: expressLogo, name: 'Express' },
-        { logo: postgresqlLogo, name: 'PostgreSQL' }
-      ];
-      break;
-    case 'user-game-api':
-      stacks = [
-        { logo: bootstrapLogo, name: 'Bootstrap' },
-        { logo: nodejsLogo, name: 'Node.js' },
-        { logo: expressLogo, name: 'Express' },
-        { logo: postgresqlLogo, name: 'PostgreSQL' }
-      ];
-      break;
-    case 'hangnimal':
-      stacks = [{ logo: typescriptLogo, name: 'TypeScript' }];
-      break;
-    case 'todo-app':
-      stacks = [
-        { logo: tailwindcssLogo, name: 'Tailwind CSS' },
-        { logo: typescriptLogo, name: 'TypeScript' },
-        { logo: nodejsLogo, name: 'Node.js' },
-        { logo: expressLogo, name: 'Express' },
-        { logo: postgresqlLogo, name: 'PostgreSQL' }
-      ];
-      break;
-    case 'old-portfolio':
-      stacks = [
-        { logo: tailwindcssLogo, name: 'Tailwind CSS' },
-        { logo: typescriptLogo, name: 'TypeScript' },
-        { logo: nodejsLogo, name: 'Node.js' },
-        { logo: expressLogo, name: 'Express' },
-        { logo: mongodbLogo, name: 'MongoDB' }
-      ];
-      break;
-    case 'img-converter':
-      stacks = [
-        { logo: tailwindcssLogo, name: 'Tailwind CSS' },
-        { logo: typescriptLogo, name: 'TypeScript' },
-        { logo: nodejsLogo, name: 'Node.js' },
-        { logo: expressLogo, name: 'Express' },
-        { logo: mongodbLogo, name: 'MongoDB' }
-      ];
-      break;
-    case 'travdir-api':
-      stacks = [
-        { logo: typescriptLogo, name: 'TypeScript' },
-        { logo: nodejsLogo, name: 'Node.js' },
-        { logo: expressLogo, name: 'Express' },
-        { logo: mongodbLogo, name: 'MongoDB' }
       ];
       break;
     case 'foodgallery':
@@ -267,6 +194,21 @@ export const getRepoStacks = repoName => {
         { logo: mysqlLogo, name: 'MySQL' }
       ];
       break;
+    case 'pdf-digital-signature':
+      stacks = [
+        { logo: nodejsLogo, name: 'Node.js' },
+        { logo: expressLogo, name: 'Express' },
+        { logo: mysqlLogo, name: 'MySQL' }
+      ];
+      break;
+    case 'news-portal':
+      stacks = [
+        { logo: reactLogo, name: 'React' },
+        { logo: tailwindcssLogo, name: 'Tailwind CSS' },
+        { logo: laravelLogo, name: 'Laravel' },
+        { logo: postgresqlLogo, name: 'PostgreSQL' }
+      ];
+      break;
     case 'poltekkespalembang':
       stacks = [
         { logo: phpLogo, name: 'PHP' },
@@ -274,11 +216,42 @@ export const getRepoStacks = repoName => {
         { logo: postgresqlLogo, name: 'PostgreSQL' }
       ];
       break;
+    case 'portfolio':
+      stacks = [
+        { logo: tailwindcssLogo, name: 'Tailwind CSS' },
+        { logo: javascriptLogo, name: 'JavaScript' },
+        { logo: reactLogo, name: 'React' },
+        { logo: viteLogo, name: 'Vite' }
+      ];
+      break;
     case 'priplan-server':
       stacks = [
         { logo: nodejsLogo, name: 'Node.js' },
         { logo: expressLogo, name: 'Express' },
         { logo: mongodbLogo, name: 'MongoDB' }
+      ];
+      break;
+    case 'secondhand-api':
+      stacks = [
+        { logo: nodejsLogo, name: 'Node.js' },
+        { logo: expressLogo, name: 'Express' },
+        { logo: postgresqlLogo, name: 'PostgreSQL' }
+      ];
+      break;
+    case 'travdir-api':
+      stacks = [
+        { logo: typescriptLogo, name: 'TypeScript' },
+        { logo: nodejsLogo, name: 'Node.js' },
+        { logo: expressLogo, name: 'Express' },
+        { logo: mongodbLogo, name: 'MongoDB' }
+      ];
+      break;
+    case 'user-game-api':
+      stacks = [
+        { logo: bootstrapLogo, name: 'Bootstrap' },
+        { logo: nodejsLogo, name: 'Node.js' },
+        { logo: expressLogo, name: 'Express' },
+        { logo: postgresqlLogo, name: 'PostgreSQL' }
       ];
       break;
     default:
