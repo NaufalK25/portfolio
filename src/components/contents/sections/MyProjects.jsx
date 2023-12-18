@@ -127,8 +127,9 @@ const TopSection = ({ repo }) => {
       {repo.licenseName ? (
         <a
           href={repo.licenseUrl}
+          target='_blank'
+          rel='noopener noreferrer'
           className='text-sm hover:underline hover:font-bold active:font-bold focus:font-bold text-slate-800 dark:text-slate-200'
-          title={repo.licenseName}
         >
           {repo.licenseName}
         </a>
@@ -150,7 +151,6 @@ const MiddleSection = ({ repo }) => {
           <a
             href={repo.homepage}
             target='_blank'
-            title='Homepage'
             rel='noopener noreferrer'
           >
             <div
@@ -165,7 +165,6 @@ const MiddleSection = ({ repo }) => {
         <a
           href={repo.htmlUrl}
           target='_blank'
-          title='Repository'
           rel='noopener noreferrer'
         >
           <div

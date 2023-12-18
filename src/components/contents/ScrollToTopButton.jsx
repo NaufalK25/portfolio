@@ -29,8 +29,8 @@ const ScrollToTopButton = () => {
   return (
     showButton && (
       <button
-        title='Back to Top'
-        className='fixed shadow-lg right-5 bottom-5 z-10 cursor-pointer bg-slate-800 dark:bg-slate-200 rounded-full p-2'
+        className='fixed shadow-lg right-5 bottom-5 z-10 cursor-pointer bg-slate-800 dark:bg-slate-200 rounded-full p-2 tooltip'
+        data-tip='Back to Top'
         onClick={handleClick}
       >
        <ArrowUp className='text-slate-200 dark:text-slate-800' />

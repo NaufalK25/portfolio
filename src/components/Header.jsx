@@ -39,14 +39,12 @@ const Header = ({ refs, onNavClick }) => {
         <section className='flex items-center gap-x-24 flex-row justify-center'>
           <a
             href='/'
-            title='Muhammad Naufal Kateni'
             className='hover:underline hover:font-bold active:font-bold focus:font-bold'
           >
             Muhammad Naufal Kateni
           </a>
           <section
             className='md:hidden flex cursor-pointer'
-            title='Navigation Bar'
           >
             <label className='swap swap-rotate'>
               <input
@@ -82,21 +80,18 @@ const Header = ({ refs, onNavClick }) => {
           } md:flex flex-col md:flex-row items-center gap-4`}
         >
           <p
-            title='About Me'
             className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
             onClick={() => onNavClick(refs.aboutMeRef)}
           >
             About Me
           </p>
           <p
-            title='My Skills'
             className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
             onClick={() => onNavClick(refs.mySkillsRef)}
           >
             My Skills
           </p>
           <p
-            title='My Projects'
             className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
             onClick={() => onNavClick(refs.myProjectsRef)}
           >

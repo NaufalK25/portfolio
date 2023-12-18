@@ -20,19 +20,11 @@ const AboutMe = ({ componentRef }) => {
         <ContactList />
       </section>
       <section className='flex justify-center lg:w-1/2'>
-        <a
-          href='img/muhammad-naufal-kateni.jpg'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='w-5/12'
-        >
-          <img
-            src='img/muhammad-naufal-kateni.jpg'
-            alt='Muhammad Naufal Kateni'
-            title='Muhammad Naufal Kateni'
-            className='rounded-b-full'
-          />
-        </a>
+        <img
+          src='img/muhammad-naufal-kateni.jpg'
+          alt='Muhammad Naufal Kateni'
+          className='w-5/12 rounded-b-full'
+        />
       </section>
     </section>
   );
