@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ArrowUp } from 'react-feather';
 
 const ScrollToTopButton = () => {
   const [showButton, setShowButton] = useState(false);
@@ -32,18 +33,7 @@ const ScrollToTopButton = () => {
         className='fixed shadow-lg right-5 bottom-5 z-10 cursor-pointer bg-slate-800 dark:bg-slate-200 rounded-full p-2'
         onClick={handleClick}
       >
-        <svg
-          height='24px'
-          viewBox='0 0 24 24'
-          width='24px'
-          className='fill-slate-200 dark:fill-slate-800'
-        >
-          <path
-            d='M0 0h24v24H0V0z'
-            fill='none'
-          />
-          <path d='M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z' />
-        </svg>
+       <ArrowUp className='text-slate-200 dark:text-slate-800' />
       </button>
     )
   );

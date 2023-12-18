@@ -1,48 +1,29 @@
 import { useEffect, useState } from 'react';
+import { ChevronDown, ChevronUp, ExternalLink, GitHub } from 'react-feather';
 import SectionTitle from '../SectionTitle';
-import githubLogo from '../../../assets/contacts/github.svg';
-import urlLogo from '../../../assets/url.svg';
-import { getRepoStacks } from '../../../utils/data';
+import StackIcon from '../../StackIcon';
 
 const MyProjects = ({ componentRef }) => {
   const [repos, setRepos] = useState([]);
   const [showedRepos, setShowedRepos] = useState(3);
   const [totalRepos, setTotalRepos] = useState(0);
   const [loading, setLoading] = useState(false);
-  const repoNameFilter = [
-    'anime-episode-tracker',
-    'bookmark-api',
-    'endcrypt',
-    'foodgallery',
-    'news-portal',
-    'pdf-digital-signature',
-    'poltekkespalembang',
-    'portfolio',
-    'priplan-server',
-    'secondhand-api',
-    'travdir-api',
-    'user-game-api'
-  ];
 
   useEffect(() => {
     const fetchRepos = async () => {
       try {
         setLoading(true);
-        const userResponse = await fetch(
-          'https://api.github.com/users/naufalk25/repos'
-        );
-        const userRepos = await userResponse.json();
 
-        const orgResponse = await fetch(
-          'https://api.github.com/orgs/primum-coertus/repos'
-        );
-        const orgRepos = await orgResponse.json();
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/repo`);
+        let { data } = await response.json();
 
-        const repos = [...userRepos, ...orgRepos]
-          .filter(repo => repoNameFilter.includes(repo.name))
-          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-        setRepos(repos);
-        setTotalRepos(repos.length);
+        data = data.sort(
+          (a, b) =>
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+
+        setRepos(data);
+        setTotalRepos(data.length);
         setLoading(false);
       } catch (err) {
         setRepos([]);
@@ -114,37 +95,25 @@ const MyProjects = ({ componentRef }) => {
         )}
       </section>
 
-      {!loading && showedRepos < totalRepos ? (
-        <div
-          className='flex items-center gap-x-1 border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 fill-slate-800 dark:fill-slate-200'
-          onClick={handleLoadMoreBtnClick}
-        >
-          <p>Load More</p>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            height='24'
-            viewBox='0 -960 960 960'
-            width='24'
+      {totalRepos > 3 ? (
+        !loading && showedRepos < totalRepos ? (
+          <div
+            className='flex items-center gap-x-1 border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 fill-slate-800 dark:fill-slate-200'
+            onClick={handleLoadMoreBtnClick}
           >
-            <path d='M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z' />
-          </svg>
-        </div>
-      ) : (
-        <div
-          className='flex items-center gap-x-1 border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 fill-slate-800 dark:fill-slate-200'
-          onClick={handleCollapseBtnClick}
-        >
-          <p>Collapse</p>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            height='24'
-            viewBox='0 -960 960 960'
-            width='24'
+            <p>Load More</p>
+            <ChevronDown />
+          </div>
+        ) : (
+          <div
+            className='flex items-center gap-x-1 border rounded-md py-2 px-4 text-lg cursor-pointer border-slate-800 dark:border-slate-200 text-slate-800 dark:text-slate-200 fill-slate-800 dark:fill-slate-200'
+            onClick={handleCollapseBtnClick}
           >
-            <path d='m296-345-56-56 240-240 240 240-56 56-184-184-184 184Z' />
-          </svg>
-        </div>
-      )}
+            <p>Collapse</p>
+            <ChevronUp />
+          </div>
+        )
+      ) : null}
     </section>
   );
 };
@@ -155,15 +124,15 @@ const TopSection = ({ repo }) => {
       <h4 className='text-sm font-bold text-slate-800 dark:text-slate-200'>
         {repo.name}
       </h4>
-      {repo.license && (
+      {repo.licenseName ? (
         <a
-          href={repo.license.url}
+          href={repo.licenseUrl}
           className='text-sm hover:underline hover:font-bold active:font-bold focus:font-bold text-slate-800 dark:text-slate-200'
-          title={repo.license.name}
+          title={repo.licenseName}
         >
-          {repo.license.name}
+          {repo.licenseName}
         </a>
-      )}
+      ) : null}
     </section>
   );
 };
@@ -173,35 +142,38 @@ const MiddleSection = ({ repo }) => {
     <section
       className='h-60 flex items-end justify-end w-full px-3 pb-3 bg-cover bg-center bg-no-repeat'
       style={{
-        backgroundImage: `url(img/repositories/${repo.name}.jpg)`
+        backgroundImage: `url(${repo.thumbnail})`
       }}
     >
-      <section className='flex gap-x-2 bg-gray-300 p-1.5 rounded-md shadow-lg shadow-gray-500/50'>
-        {repo.homepage && (
+      <section className='flex items-center gap-x-2 bg-gray-300 p-1.5 rounded-md shadow-lg shadow-gray-500/50'>
+        {repo.homepage ? (
           <a
             href={repo.homepage}
-            className='-rotate-45'
             target='_blank'
             title='Homepage'
             rel='noopener noreferrer'
           >
-            <img
-              src={urlLogo}
-              alt=''
-            />
+            <div
+              className='tooltip'
+              data-tip='Homepage'
+            >
+              <ExternalLink color='black' />
+            </div>
           </a>
-        )}
+        ) : null}
 
         <a
-          href={repo.html_url}
+          href={repo.htmlUrl}
           target='_blank'
           title='Repository'
           rel='noopener noreferrer'
         >
-          <img
-            src={githubLogo}
-            alt=''
-          />
+          <div
+            className='tooltip'
+            data-tip='Repository'
+          >
+            <GitHub color='black' />
+          </div>
         </a>
       </section>
     </section>
@@ -211,20 +183,24 @@ const MiddleSection = ({ repo }) => {
 const BottomSection = ({ repo }) => {
   return (
     <section className='p-1 flex flex-col gap-y-3'>
-      {repo.description && (
+      {repo.description ? (
         <p className='text-sm text-slate-800 dark:text-slate-200'>
           {repo.description}
         </p>
-      )}
+      ) : null}
       <section className='flex justify-center'>
-        <section className='flex gap-x-3 flex-row bg-slate-400 dark:bg-slate-300 p-1.5 rounded-md shadow-lg'>
-          {getRepoStacks(repo.name).map(stack => (
-            <img
-              key={`${repo.name}-${stack.name}`}
-              src={stack.logo}
-              alt={stack.name}
-              title={stack.name}
-            />
+        <section className='flex gap-x-3 flex-row bg-slate-100 dark:bg-slate-700 p-1.5 rounded-md shadow-lg'>
+          {repo.stacks.map(stack => (
+            <div
+              className='tooltip'
+              data-tip={stack}
+              key={stack}
+            >
+              <StackIcon
+                stack={stack}
+                color='hex'
+              />
+            </div>
           ))}
         </section>
       </section>

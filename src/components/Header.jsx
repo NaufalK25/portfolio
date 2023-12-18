@@ -103,10 +103,7 @@ const Header = ({ refs, onNavClick }) => {
             My Projects
           </p>
           <DownloadCVButton />
-          <div
-            title={`Switch to ${mode === 'dark' ? 'Light' : 'Dark'} Mode`}
-            onClick={handleModeToggleClick}
-          >
+          <div onClick={handleModeToggleClick}>
             <label className='swap swap-rotate'>
               <input
                 type='checkbox'
