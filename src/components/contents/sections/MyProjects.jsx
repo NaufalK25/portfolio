@@ -146,7 +146,7 @@ const MiddleSection = ({ repo }) => {
         backgroundImage: `url(${repo.thumbnail})`
       }}
     >
-      <section className='flex items-center gap-x-2 bg-gray-300 p-1.5 rounded-md shadow-lg shadow-gray-500/50'>
+      <section className='flex items-center gap-x-2 bg-gray-300 p-1.5 pb-0 rounded-md shadow-lg shadow-gray-500/50'>
         {repo.homepage ? (
           <a
             href={repo.homepage}
