@@ -9,7 +9,6 @@ const Header = ({ refs, onNavClick }) => {
 
   useEffect(() => {
     const htmlElement = document.documentElement;
-
     if (mode === 'dark') {
       htmlElement.classList.add('dark');
       htmlElement.classList.remove('light');
@@ -17,7 +16,6 @@ const Header = ({ refs, onNavClick }) => {
       htmlElement.classList.add('light');
       htmlElement.classList.remove('dark');
     }
-
     localStorage.setItem('mode', mode);
   }, [mode]);
 
@@ -30,100 +28,125 @@ const Header = ({ refs, onNavClick }) => {
   };
 
   return (
-    <header>
-      <nav
-        className={`${
-          !isNavMenuOpen && 'flex'
-        } md:flex-row justify-evenly pt-3`}
-      >
-        <section className='flex items-center gap-x-24 flex-row justify-center'>
-          <a
-            href='/'
-            className='hover:underline hover:font-bold active:font-bold focus:font-bold'
-          >
-            Muhammad Naufal Kateni
-          </a>
-          <section
-            className='md:hidden flex cursor-pointer'
-          >
-            <label className='swap swap-rotate'>
-              <input
-                type='checkbox'
-                onChange={handleNavHamburgerClick}
-              />
-
-              <svg
-                className='swap-off fill-current'
-                xmlns='http://www.w3.org/2000/svg'
-                width='32'
-                height='32'
-                viewBox='0 0 512 512'
-              >
-                <path d='M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z' />
-              </svg>
-
-              <svg
-                className='swap-on fill-current'
-                xmlns='http://www.w3.org/2000/svg'
-                width='32'
-                height='32'
-                viewBox='0 0 512 512'
-              >
-                <polygon points='400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49' />
-              </svg>
-            </label>
-          </section>
-        </section>
-        <section
-          className={`${
-            isNavMenuOpen ? 'flex' : 'hidden'
-          } md:flex flex-col md:flex-row items-center gap-4`}
+    <header className='sticky top-0 z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md shadow-sm'>
+      <nav className='container mx-auto flex items-center justify-between px-6 py-3'>
+        {/* Logo / Name */}
+        <a
+          href='/'
+          className='font-mono text-xl font-bold text-gray-800 dark:text-gray-100 hover:text-green-500 transition-colors'
         >
-          <p
-            className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
+          Muhammad Naufal Kateni
+        </a>
+
+        {/* Desktop Menu */}
+        <div className='hidden md:flex items-center gap-6'>
+          <button
             onClick={() => onNavClick(refs.aboutMeRef)}
+            className='text-gray-700 dark:text-gray-300 hover:text-green-500 transition-colors'
           >
             About Me
-          </p>
-          <p
-            className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
+          </button>
+          <button
             onClick={() => onNavClick(refs.mySkillsRef)}
+            className='text-gray-700 dark:text-gray-300 hover:text-green-500 transition-colors'
           >
             My Skills
-          </p>
-          <p
-            className='hover:underline hover:font-bold active:font-bold focus:font-bold cursor-pointer'
+          </button>
+          <button
             onClick={() => onNavClick(refs.myProjectsRef)}
+            className='text-gray-700 dark:text-gray-300 hover:text-green-500 transition-colors'
           >
             My Projects
-          </p>
+          </button>
+
           <DownloadCVButton />
-          <div onClick={handleModeToggleClick}>
-            <label className='swap swap-rotate'>
-              <input
-                type='checkbox'
-                onChange={handleModeToggleClick}
-              />
 
+          {/* Dark/Light Mode Toggle */}
+          <button
+            onClick={handleModeToggleClick}
+            className='ml-2 p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:ring-2 hover:ring-green-500 transition'
+          >
+            {mode === 'dark' ? (
               <svg
-                className='swap-on fill-current w-10 h-10'
+                className='w-5 h-5 text-yellow-400'
                 xmlns='http://www.w3.org/2000/svg'
+                fill='currentColor'
                 viewBox='0 0 24 24'
               >
-                <path d='M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z' />
+                <path d='M12 3a1 1 0 0 0-1 1v1a1...z' />
               </svg>
-
+            ) : (
               <svg
-                className='swap-off fill-current w-10 h-10'
+                className='w-5 h-5 text-gray-800'
                 xmlns='http://www.w3.org/2000/svg'
+                fill='currentColor'
                 viewBox='0 0 24 24'
               >
-                <path d='M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z' />
+                <path d='M21.64 13a1 1 0...z' />
               </svg>
-            </label>
-          </div>
-        </section>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Hamburger */}
+        <div className='md:hidden'>
+          <button
+            onClick={handleNavHamburgerClick}
+            className='p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800'
+          >
+            {isNavMenuOpen ? (
+              <svg
+                className='w-6 h-6 text-gray-800 dark:text-gray-200'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path d='M6 18L18 6M6 6l12 12' />
+              </svg>
+            ) : (
+              <svg
+                className='w-6 h-6 text-gray-800 dark:text-gray-200'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path d='M4 6h16M4 12h16M4 18h16' />
+              </svg>
+            )}
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile Dropdown */}
+      {isNavMenuOpen && (
+        <div className='md:hidden absolute right-4 top-16 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-lg p-4 flex flex-col gap-3'>
+          <button
+            onClick={() => onNavClick(refs.aboutMeRef)}
+            className='text-gray-700 dark:text-gray-300 hover:text-green-500 transition-colors text-left'
+          >
+            About Me
+          </button>
+          <button
+            onClick={() => onNavClick(refs.mySkillsRef)}
+            className='text-gray-700 dark:text-gray-300 hover:text-green-500 transition-colors text-left'
+          >
+            My Skills
+          </button>
+          <button
+            onClick={() => onNavClick(refs.myProjectsRef)}
+            className='text-gray-700 dark:text-gray-300 hover:text-green-500 transition-colors text-left'
+          >
+            My Projects
+          </button>
+          <DownloadCVButton />
+          <button
+            onClick={handleModeToggleClick}
+            className='mt-2 p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:ring-2 hover:ring-green-500 transition'
+          >
+            {mode === 'dark' ? '🌙 Dark' : '☀️ Light'}
+          </button>
+        </div>
+      )}
     </header>
   );
 };

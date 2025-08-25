@@ -2,34 +2,35 @@ import SectionTitle from '../SectionTitle';
 import SkillList from '../../SkillList';
 
 const MySkills = ({ componentRef }) => {
+  const skillCategories = [
+    {
+      title: 'Programming Language',
+      stacks: ['JavaScript', 'TypeScript', 'PHP']
+    },
+    { title: 'Front End', stacks: ['HTML5', 'CSS3', 'Tailwind CSS', 'React'] },
+    { title: 'Back End', stacks: ['Node.js', 'Express', 'NestJS', 'Laravel'] },
+    { title: 'Database', stacks: ['MySQL', 'PostgreSQL', 'MongoDB'] },
+    { title: 'Other', stacks: ['Git', 'Postman', 'GraphQL'] }
+  ];
+
   return (
     <section
-      className='flex flex-col justify-center items-center mt-24 gap-y-10 bg-slate-300 dark:bg-slate-600 py-10'
       ref={componentRef}
+      className='container mx-auto py-20 px-6 bg-slate-50 dark:bg-slate-900 rounded-2xl'
     >
+      {/* Title */}
       <SectionTitle title='My Skills' />
-      <section className='flex text-center gap-10 flex-wrap w-full justify-center'>
-        <SkillList
-          title='Programming Language'
-          stacks={['JavaScript', 'TypeScript', 'PHP']}
-        />
-        <SkillList
-          title='Front End'
-          stacks={['HTML5', 'CSS3', 'Tailwind CSS', 'React']}
-        />
-        <SkillList
-          title='Back End'
-          stacks={['Node.js', 'Express', 'NestJS', 'Laravel']}
-        />
-        <SkillList
-          title='Database'
-          stacks={['MySQL', 'PostgreSQL', 'MongoDB']}
-        />
-        <SkillList
-          title='Other'
-          stacks={['Git', 'Postman', 'GraphQL']}
-        />
-      </section>
+
+      {/* Skills Grid */}
+      <div className='container mx-auto flex flex-wrap justify-center gap-8 px-6'>
+        {skillCategories.map((category, index) => (
+          <SkillList
+            key={index}
+            title={category.title}
+            stacks={category.stacks}
+          />
+        ))}
+      </div>
     </section>
   );
 };

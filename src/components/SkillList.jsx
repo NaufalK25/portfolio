@@ -2,11 +2,18 @@ import StackIcon from './StackIcon';
 
 const SkillList = ({ title, stacks }) => {
   return (
-    <section className='lg:p-16 p-8 lg:w-1/4 w-full md:w-1/3 gap-y-5 rounded-md flex flex-col items-center'>
-      <h4 className='font-bold text-xl text-slate-800 dark:text-slate-200'>
+    <section
+      className='flex flex-col items-center bg-white dark:bg-slate-800
+                 shadow-md rounded-xl p-6 w-full sm:w-2/3 md:w-1/3 lg:w-1/4
+                 hover:shadow-lg transition-shadow duration-300'
+    >
+      {/* Category Title */}
+      <h4 className='font-semibold text-lg md:text-xl text-slate-800 dark:text-slate-200 mb-4'>
         {title}
       </h4>
-      <ul className='flex gap-x-3 flex-row bg-slate-100 dark:bg-slate-700 p-1.5 rounded-md shadow-lg'>
+
+      {/* Stack Icons */}
+      <ul className='flex flex-wrap justify-center gap-4'>
         {stacks.map(stack => (
           <li
             key={stack}
@@ -15,7 +22,7 @@ const SkillList = ({ title, stacks }) => {
           >
             <StackIcon
               stack={stack}
-              className='hex'
+              className='w-8 h-8 text-slate-700 dark:text-slate-300 hover:text-green-500 transition-colors duration-200'
             />
           </li>
         ))}

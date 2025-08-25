@@ -1,8 +1,11 @@
 import { GitHub, Linkedin, Mail, Phone, Twitter } from 'react-feather';
 
 const ContactList = () => {
+  const iconStyle =
+    'w-6 h-6 md:w-7 md:h-7 text-gray-600 dark:text-gray-300 hover:text-green-500 hover:scale-110 transition-transform duration-200';
+
   return (
-    <section className='flex gap-x-3 bg-slate-100 dark:bg-slate-700 rounded-md p-1.5 shadow-lg'>
+    <section className='flex gap-4 bg-white/40 dark:bg-gray-800/40 rounded-xl p-3 shadow-md backdrop-blur-sm'>
       <div
         className='tooltip'
         data-tip='NaufalK25'
@@ -12,19 +15,19 @@ const ContactList = () => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <GitHub />
+          <GitHub className={iconStyle} />
         </a>
       </div>
       <div
         className='tooltip'
-        data-tip='Muhammad Naufal kateni'
+        data-tip='Muhammad Naufal Kateni'
       >
         <a
           href='https://www.linkedin.com/in/muhammad-naufal-kateni/'
           target='_blank'
           rel='noopener noreferrer'
         >
-          <Linkedin />
+          <Linkedin className={iconStyle} />
         </a>
       </div>
       <div
@@ -36,7 +39,7 @@ const ContactList = () => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <Twitter />
+          <Twitter className={iconStyle} />
         </a>
       </div>
       <div
@@ -48,7 +51,7 @@ const ContactList = () => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <Mail />
+          <Mail className={iconStyle} />
         </a>
       </div>
       <div
@@ -60,7 +63,7 @@ const ContactList = () => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <Phone />
+          <Phone className={iconStyle} />
         </a>
       </div>
     </section>
