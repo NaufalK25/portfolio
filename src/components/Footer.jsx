@@ -1,6 +1,3 @@
-import { Mail } from 'react-feather';
-import { SiGithub, SiLinkedin } from '@icons-pack/react-simple-icons';
-
 const Footer = () => {
   return (
     <footer className='mt-12 border-t border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md'>
