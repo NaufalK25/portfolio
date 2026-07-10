@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import Content from './components/Content';
+import CursorGlow from './components/CursorGlow';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <>
+      <CursorGlow />
       <Header
         refs={refs}
         onNavClick={handleNavClick}
