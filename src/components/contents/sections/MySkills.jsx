@@ -9,7 +9,7 @@ const MySkills = ({ componentRef }) => {
     },
     { title: 'Front End', stacks: ['HTML5', 'CSS3', 'Tailwind CSS', 'React'] },
     { title: 'Back End', stacks: ['Node.js', 'Express', 'NestJS', 'Laravel'] },
-    { title: 'Database', stacks: ['MySQL', 'PostgreSQL', 'MongoDB'] },
+    { title: 'Database', stacks: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis'] },
     { title: 'Other', stacks: ['Git', 'Postman', 'GraphQL'] }
   ];
 
