@@ -4,16 +4,16 @@ const SkillList = ({ title, stacks }) => {
   return (
     <section
       className='flex flex-col items-center bg-white dark:bg-slate-800
-                 shadow-md rounded-xl p-6 w-full sm:w-2/3 md:w-1/3 lg:w-1/4
+                 shadow-md rounded-xl p-4 w-full sm:w-2/3 md:w-1/3 lg:w-1/4
                  hover:shadow-lg transition-shadow duration-300'
     >
       {/* Category Title */}
-      <h4 className='font-semibold text-lg md:text-xl text-slate-800 dark:text-slate-200 mb-4'>
+      <h4 className='font-semibold text-lg md:text-xl text-slate-800 dark:text-slate-200 mb-3'>
         {title}
       </h4>
 
       {/* Stack Icons */}
-      <ul className='flex flex-wrap justify-center gap-4'>
+      <ul className='flex flex-wrap justify-center gap-3'>
         {stacks.map(stack => (
           <li
             key={stack}

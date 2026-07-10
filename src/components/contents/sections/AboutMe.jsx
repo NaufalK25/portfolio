@@ -5,7 +5,7 @@ const AboutMe = ({ componentRef }) => {
   return (
     <section
       ref={componentRef}
-      className='container mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20 px-6 py-20'
+      className='container mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16 px-6 py-14'
     >
       {/* Text Section */}
       <div className='flex flex-col lg:w-1/2 gap-6 text-center lg:text-left'>
@@ -37,7 +37,7 @@ const AboutMe = ({ componentRef }) => {
         </p>
 
         {/* Contact List */}
-        <div className='mt-6 flex justify-center lg:justify-start'>
+        <div className='mt-4 flex justify-center lg:justify-start'>
           <ContactList />
         </div>
       </div>

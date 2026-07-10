@@ -5,7 +5,7 @@ const ContactList = () => {
     'w-6 h-6 md:w-7 md:h-7 text-gray-600 dark:text-gray-300 hover:text-green-500 hover:scale-110 transition-transform duration-200';
 
   return (
-    <section className='flex gap-4 bg-white/40 dark:bg-gray-800/40 rounded-xl p-3 shadow-md backdrop-blur-sm'>
+    <section className='flex gap-3 bg-white/40 dark:bg-gray-800/40 rounded-xl p-3 shadow-md backdrop-blur-sm'>
       <div
         className='tooltip'
         data-tip='NaufalK25'

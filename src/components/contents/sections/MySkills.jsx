@@ -16,13 +16,13 @@ const MySkills = ({ componentRef }) => {
   return (
     <section
       ref={componentRef}
-      className='container mx-auto py-20 px-6 bg-slate-50 dark:bg-slate-900 rounded-2xl'
+      className='container mx-auto py-14 px-6 bg-slate-50 dark:bg-slate-900 rounded-2xl'
     >
       {/* Title */}
       <SectionTitle title='My Skills' />
 
       {/* Skills Grid */}
-      <div className='container mx-auto flex flex-wrap justify-center gap-8 px-6'>
+      <div className='flex flex-wrap justify-center gap-6'>
         {skillCategories.map((category, index) => (
           <SkillList
             key={index}

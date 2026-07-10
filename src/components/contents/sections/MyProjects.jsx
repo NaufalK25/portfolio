@@ -36,11 +36,11 @@ const MyProjects = ({ componentRef }) => {
   return (
     <section
       ref={componentRef}
-      className='container mx-auto flex flex-col items-center gap-y-10 py-20 px-6 bg-slate-200 dark:bg-gray-800'
+      className='container mx-auto flex flex-col items-center gap-y-8 py-14 px-6 bg-slate-200 dark:bg-gray-800'
     >
       <SectionTitle title='My Projects' />
 
-      <section className='grid gap-8 w-full max-w-7xl sm:grid-cols-2 lg:grid-cols-3'>
+      <section className='grid gap-6 w-full max-w-7xl sm:grid-cols-2 lg:grid-cols-3'>
         {loading
           ? Array.from({ length: 3 }).map((_, i) => <SkeletonCard key={i} />)
           : repos.slice(0, showedRepos).map(repo => (

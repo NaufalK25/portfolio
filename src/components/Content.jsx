@@ -6,7 +6,7 @@ import MySkills from './contents/sections/MySkills';
 
 const Content = ({ refs }) => {
   return (
-    <main className='flex-1 mt-32'>
+    <main className='flex-1 mt-24'>
       <ScrollToTopButton />
       <AboutMe componentRef={refs.aboutMeRef} />
       <MySkills componentRef={refs.mySkillsRef} />
