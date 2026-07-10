@@ -24,20 +24,45 @@ const CursorRing = () => {
       }
     };
 
+    const handleTouchMove = e => {
+      const touch = e.touches[0];
+      if (!touch) return;
+      wrapper.style.transform = `translate3d(${touch.clientX}px, ${touch.clientY}px, 0)`;
+    };
+
+    const handleTouchStart = e => {
+      handleTouchMove(e);
+      if (e.target.closest('a, button, .tooltip')) {
+        box.classList.add('is-active');
+      }
+    };
+
+    const handleTouchEnd = e => {
+      if (e.target.closest('a, button, .tooltip')) {
+        box.classList.remove('is-active');
+      }
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseover', handleMouseOver);
     document.addEventListener('mouseout', handleMouseOut);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchmove', handleTouchMove);
+    window.addEventListener('touchend', handleTouchEnd);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseover', handleMouseOver);
       document.removeEventListener('mouseout', handleMouseOut);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
   }, []);
 
   return (
     <div
       ref={wrapperRef}
-      className='pointer-events-none fixed left-0 top-0 z-999 -ml-5 -mt-5 pointer-coarse:hidden'
+      className='pointer-events-none fixed left-0 top-0 z-999 -ml-5 -mt-5'
     >
       <div
         ref={boxRef}
