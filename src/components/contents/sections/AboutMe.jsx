@@ -18,7 +18,8 @@ const AboutMe = ({ componentRef }) => {
           strings={[
             'I am a Web Developer',
             'I am a Fullstack Developer',
-            'I am a Backend Developer'
+            'I am a Backend Developer',
+            'I am a Softwre Engineer'
           ]}
           typeSpeed={50}
           backSpeed={30}
@@ -27,12 +28,12 @@ const AboutMe = ({ componentRef }) => {
         />
 
         <p className='text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0'>
-          I’am a junior fullstack developer who has nearly 2 years experience.
-          Skilled in building web based application and know the technique about
-          identifying database, fundamental programming, version control system,
-          and API management along with API documentation and API testing. Have
-          experience in building website with React and Laravel and also
-          Wordpress. Nice to meet you!
+          Hi! I'm a fullstack developer with ~2 years of experience, focused on
+          backend development. I work with Node.js (Express, NestJS,
+          TypeScript), build RESTful APIs, and use Redis for caching and Docker
+          for containerization. I also have experience with database design,
+          Git, and API documentation/testing. On the frontend/CMS side, I've
+          worked with React, Laravel, and WordPress. Nice to meet you!
         </p>
 
         {/* Contact List */}
