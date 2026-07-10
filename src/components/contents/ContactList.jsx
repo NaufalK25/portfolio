@@ -14,6 +14,7 @@ const ContactList = () => {
           href='https://github.com/NaufalK25'
           target='_blank'
           rel='noopener noreferrer'
+          aria-label='GitHub profile'
         >
           <GitHub className={iconStyle} />
         </a>
@@ -26,6 +27,7 @@ const ContactList = () => {
           href='https://www.linkedin.com/in/muhammad-naufal-kateni/'
           target='_blank'
           rel='noopener noreferrer'
+          aria-label='LinkedIn profile'
         >
           <Linkedin className={iconStyle} />
         </a>
@@ -38,6 +40,7 @@ const ContactList = () => {
           href='https://twitter.com/NaufalK2511'
           target='_blank'
           rel='noopener noreferrer'
+          aria-label='Twitter profile'
         >
           <Twitter className={iconStyle} />
         </a>
@@ -50,6 +53,7 @@ const ContactList = () => {
           href='mailto:naufalkateni2001@gmail.com'
           target='_blank'
           rel='noopener noreferrer'
+          aria-label='Send an email'
         >
           <Mail className={iconStyle} />
         </a>
@@ -62,6 +66,7 @@ const ContactList = () => {
           href='https://wa.me/62816382001'
           target='_blank'
           rel='noopener noreferrer'
+          aria-label='Chat on WhatsApp'
         >
           <Phone className={iconStyle} />
         </a>

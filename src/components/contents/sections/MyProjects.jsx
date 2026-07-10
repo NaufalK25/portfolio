@@ -8,11 +8,13 @@ const MyProjects = ({ componentRef }) => {
   const [showedRepos, setShowedRepos] = useState(3);
   const [totalRepos, setTotalRepos] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchRepos = async () => {
       try {
         setLoading(true);
+        setError(false);
         const response = await fetch(`${import.meta.env.VITE_BASE_URL}/repo`);
         let { data } = await response.json();
 
@@ -25,6 +27,7 @@ const MyProjects = ({ componentRef }) => {
         setTotalRepos(data.length);
       } catch (err) {
         setRepos([]);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -40,16 +43,30 @@ const MyProjects = ({ componentRef }) => {
     >
       <SectionTitle title='My Projects' />
 
-      <section className='grid gap-6 w-full max-w-7xl sm:grid-cols-2 lg:grid-cols-3'>
-        {loading
-          ? Array.from({ length: 3 }).map((_, i) => <SkeletonCard key={i} />)
-          : repos.slice(0, showedRepos).map(repo => (
-              <ProjectCard
-                key={repo.name}
-                repo={repo}
-              />
-            ))}
-      </section>
+      {loading ? (
+        <section className='grid gap-6 w-full max-w-7xl sm:grid-cols-2 lg:grid-cols-3'>
+          {Array.from({ length: 3 }).map((_, i) => (
+            <SkeletonCard key={i} />
+          ))}
+        </section>
+      ) : error ? (
+        <p className='text-slate-600 dark:text-slate-300 text-center'>
+          Couldn't load projects right now. Please try again later.
+        </p>
+      ) : repos.length === 0 ? (
+        <p className='text-slate-600 dark:text-slate-300 text-center'>
+          No projects to show yet.
+        </p>
+      ) : (
+        <section className='grid gap-6 w-full max-w-7xl sm:grid-cols-2 lg:grid-cols-3'>
+          {repos.slice(0, showedRepos).map(repo => (
+            <ProjectCard
+              key={repo.name}
+              repo={repo}
+            />
+          ))}
+        </section>
+      )}
 
       {totalRepos > 3 && !loading && (
         <button
@@ -80,7 +97,7 @@ const MyProjects = ({ componentRef }) => {
 /* === Components === */
 
 const ProjectCard = ({ repo }) => (
-  <div className='flex flex-col bg-slate-100 dark:bg-slate-700 rounded-xl shadow-lg overflow-hidden transition hover:shadow-2xl'>
+  <div className='flex flex-col bg-slate-100 dark:bg-slate-700 rounded-xl shadow-lg overflow-hidden transition hover:scale-105 hover:shadow-2xl'>
     {/* Top */}
     <div className='flex justify-between items-center px-4 py-2 border-b border-slate-300 dark:border-slate-600'>
       <h4 className='text-base font-bold text-slate-800 dark:text-slate-200 truncate'>
@@ -109,6 +126,7 @@ const ProjectCard = ({ repo }) => (
             href={repo.homepage}
             target='_blank'
             rel='noopener noreferrer'
+            aria-label={`${repo.name} live demo`}
           >
             <ExternalLink
               size={18}
@@ -120,6 +138,7 @@ const ProjectCard = ({ repo }) => (
           href={repo.htmlUrl}
           target='_blank'
           rel='noopener noreferrer'
+          aria-label={`${repo.name} source code on GitHub`}
         >
           <GitHub
             size={18}

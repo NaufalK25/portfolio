@@ -47,6 +47,8 @@ const AboutMe = ({ componentRef }) => {
         <img
           src='img/muhammad-naufal-kateni.jpg'
           alt='Muhammad Naufal Kateni'
+          width={680}
+          height={1024}
           className='w-64 md:w-80 h-80 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300'
         />
       </div>
