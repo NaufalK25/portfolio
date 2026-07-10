@@ -1,0 +1,16 @@
+node_modules
+dist
+.env*
+!.env.example
+.git
+.gitignore
+*.log
+coverage
+.vscode
+.idea
+.claude
+README.md
+Dockerfile
+.dockerignore
+eslint.config.js
+.prettierrc
