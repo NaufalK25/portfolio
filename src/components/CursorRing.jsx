@@ -9,6 +9,7 @@ const CursorRing = () => {
     const box = boxRef.current;
 
     const handleMouseMove = e => {
+      wrapper.style.opacity = '1';
       wrapper.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
     };
 
@@ -32,12 +33,14 @@ const CursorRing = () => {
 
     const handleTouchStart = e => {
       handleTouchMove(e);
+      wrapper.style.opacity = '1';
       if (e.target.closest('a, button, .tooltip')) {
         box.classList.add('is-active');
       }
     };
 
     const handleTouchEnd = e => {
+      wrapper.style.opacity = '0';
       if (e.target.closest('a, button, .tooltip')) {
         box.classList.remove('is-active');
       }
@@ -62,7 +65,7 @@ const CursorRing = () => {
   return (
     <div
       ref={wrapperRef}
-      className='pointer-events-none fixed left-0 top-0 z-999 -ml-5 -mt-5'
+      className='pointer-events-none fixed left-0 top-0 z-999 -ml-5 -mt-5 opacity-0 transition-opacity duration-200 ease-out'
     >
       <div
         ref={boxRef}
