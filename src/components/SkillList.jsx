@@ -3,7 +3,7 @@ import StackIcon from './StackIcon';
 const SkillList = ({ title, stacks }) => {
   return (
     <section
-      className='flex flex-col items-center bg-white dark:bg-slate-800
+      className='flex flex-col items-center justify-between bg-white dark:bg-slate-800
                  shadow-md rounded-xl p-4 w-full sm:w-2/3 md:w-1/3 lg:w-1/4
                  hover:shadow-lg transition-shadow duration-300'
     >
