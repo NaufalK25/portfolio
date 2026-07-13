@@ -127,6 +127,8 @@ const ProjectCard = ({ repo }) => (
             target='_blank'
             rel='noopener noreferrer'
             aria-label={`${repo.name} live demo`}
+            className='tooltip'
+            data-tip='Homepage'
           >
             <ExternalLink
               size={18}
@@ -139,6 +141,8 @@ const ProjectCard = ({ repo }) => (
           target='_blank'
           rel='noopener noreferrer'
           aria-label={`${repo.name} source code on GitHub`}
+          className='tooltip'
+          data-tip='Repository'
         >
           <GitHub
             size={18}
