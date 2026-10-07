@@ -19,7 +19,7 @@ const AboutMe = ({ componentRef }) => {
             'I am a Web Developer',
             'I am a Fullstack Developer',
             'I am a Backend Developer',
-            'I am a Softwre Engineer'
+            'I am a Software Engineer'
           ]}
           typeSpeed={50}
           backSpeed={30}
