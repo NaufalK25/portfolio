@@ -84,6 +84,8 @@ export async function fetchProjects() {
     const res = await fetch(`${import.meta.env.VITE_BASE_URL}/repo`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const { data } = await res.json();
+    // An empty answer would wipe the snapshot (and turn every case page into the 404): keep the last build.
+    if (!data?.length) throw new Error('No rows');
     const ms = Math.round(performance.now() - t);
     liveStatus.text = `${res.status} OK, ${data.length} rows, ${ms} ms`;
     return { projects: toProjects(data), ms };

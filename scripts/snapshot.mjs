@@ -12,6 +12,7 @@ try {
   const res = await fetch(`${base}/repo`, { signal: AbortSignal.timeout(15000) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const { data } = await res.json();
+  if (!data?.length) throw new Error('no rows');
   const rows = data.map(r => Object.fromEntries(keep.map(k => [k, r[k] ?? null])));
   fs.writeFileSync(out, `${JSON.stringify(rows, null, 2)}\n`);
   console.log(`snapshot: ${rows.length} repos from ${base}`);
