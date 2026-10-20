@@ -67,7 +67,9 @@ Exception, kept by the owner because it looks better: the small key labels of ke
 (contact channels, skill groups), the © line and "next record" stay in mono.
 
 **Grid:** 12 columns, gutter = outer margin. Hang lines: col 1, col 5, col 9.
-Section rhythm: hero full viewport → index tight → diagram airy → about normal → footer full.
+Section rhythm: hero full viewport → index tight → diagram airy → experience (the `employment`
+table: dates hung in col 1, company and highlights from col 4, content from the CV in `site.js`)
+→ about normal → footer full.
 
 **Shape:** radius 0 everywhere (entity boxes are drawn with 1px rules).
 

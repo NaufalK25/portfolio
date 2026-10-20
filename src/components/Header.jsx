@@ -6,6 +6,7 @@ import { usePage } from '../router';
 const links = [
   { href: '/#work', id: 'work', label: 'Work' },
   { href: '/#schema', id: 'schema', label: 'Schema' },
+  { href: '/#experience', id: 'experience', label: 'Experience' },
   { href: '/#about', id: 'about', label: 'About' },
   { href: '/#contact', id: 'contact', label: 'Contact' }
 ];

@@ -58,7 +58,9 @@ function blockTween(el, paused) {
     : kind === 'clip' ? { clipPath: 'inset(0% 100% 0% 0%)', autoAlpha: 1 }
     : kind === 'scale' ? { scale: 1.15, clipPath: 'inset(12% 12% 12% 12%)', autoAlpha: 1 }
     : { y: 48, autoAlpha: 0 };
-  const to = kind === 'clip' || kind === 'scale' ? { clipPath: 'inset(0% 0% 0% 0%)', scale: 1 } : {};
+  // clearProps only when there is something to clear: GSAP throws on clearProps: undefined.
+  const to =
+    kind === 'clip' || kind === 'scale' ? { clipPath: 'inset(0% 0% 0% 0%)', scale: 1, clearProps: 'clipPath' } : {};
   gsap.set(el, { visibility: 'visible' });
   return gsap.fromTo(el, from, {
     ...to,
@@ -68,7 +70,6 @@ function blockTween(el, paused) {
     ease: ease.out,
     delay,
     paused,
-    clearProps: kind === 'clip' || kind === 'scale' ? 'clipPath' : undefined,
     scrollTrigger: paused ? undefined : { trigger: el, start: 'top 90%', once: true }
   });
 }

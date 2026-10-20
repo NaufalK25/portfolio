@@ -422,6 +422,49 @@ html.frame-away .frame { translate: 0 -110%; }
   .node { padding: 0.3rem 0.45rem; gap: 0.4rem; font-size: 0.8125rem; }
 }
 
+/* ---------- Experience: the employment table ---------- */
+
+.experience { border-top: 1px solid var(--c-fg); padding: 3rem 0 6rem; }
+.job { padding-block: 2.25rem 2.5rem; border-top: 1px solid var(--c-line); row-gap: 1rem; align-items: start; }
+.job:first-child { border-top-color: var(--c-fg); }
+.job__meta { grid-column: 1 / 4; padding-top: 0.55rem; color: var(--c-muted); }
+.job__now { color: var(--c-accent); }
+.job__body { grid-column: 4 / 12; display: grid; gap: 0.9rem; justify-items: start; }
+.job__company {
+  font-family: var(--f-display);
+  font-size: var(--t-l);
+  font-weight: 800;
+  font-stretch: 112%;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+.job__role { font-size: var(--t-m); font-weight: 500; }
+.job__summary { max-width: 46rem; color: var(--c-muted); line-height: 1.5; }
+.job__points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem 2rem;
+  width: 100%;
+  max-width: 52rem;
+  margin-top: 0.6rem;
+}
+.job__points li { display: grid; gap: 0.3rem; align-content: start; padding-top: 0.75rem; border-top: 1px solid var(--c-line); }
+.job__lead { font-weight: 700; font-stretch: 105%; letter-spacing: -0.01em; line-height: 1.25; }
+.job__detail { font-size: var(--t-s); color: var(--c-muted); line-height: 1.55; }
+.job__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem; }
+.job__tags li { padding: 0.2rem 0.5rem; border: 1px solid var(--c-line); color: var(--c-muted); }
+
+@media (max-width: 1023px) {
+  .job__body { grid-column: 4 / -1; }
+}
+@media (max-width: 767px) {
+  .experience { padding-bottom: 4rem; }
+  .job { padding-block: 1.75rem 2rem; }
+  .job__meta, .job__body { grid-column: 1 / -1; }
+  .job__meta { padding-top: 0; }
+  .job__points { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* ---------- About ---------- */
 
 .about { padding-block: 7rem; border-top: 1px solid var(--c-fg); row-gap: 3rem; align-items: start; }
