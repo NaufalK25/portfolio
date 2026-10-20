@@ -11,9 +11,7 @@ const mean = a => a.reduce((s, v) => s + v, 0) / a.length;
 // Order both columns by the mean position of their partners (one barycenter pass each way):
 // fewer crossings, so the diagram reads like a schema someone laid out by hand.
 function layout(projects) {
-  const joined = joinStacks(projects);
-  const used = joined.filter(s => s.slugs.length);
-  const unused = joined.filter(s => !s.slugs.length);
+  const used = joinStacks(projects);
   const sIndex = new Map(used.map((s, i) => [s.name, i]));
   const ps = [...projects].sort(
     (a, b) =>
@@ -26,7 +24,7 @@ function layout(projects) {
       mean(a.slugs.map(x => pIndex.get(x))) -
       mean(b.slugs.map(x => pIndex.get(x)))
   );
-  return { stacks: [...ss, ...unused], projects: ps };
+  return { stacks: ss, projects: ps };
 }
 
 const curve = (x1, y1, x2, y2) => {
@@ -101,14 +99,14 @@ const Relations = () => {
     return flow(el, wrap.current);
   });
 
-  const nodeProps = (kind, key, empty = false) => {
+  const nodeProps = (kind, key) => {
     const id = `${kind}:${key}`;
     const pressed = sel?.kind === kind && sel.key === key;
     return {
       type: 'button',
       'data-node': id,
       'aria-pressed': pressed,
-      className: `node${empty ? ' is-empty' : ''}${lit.has(id) ? ' is-lit' : ''}${active && !lit.has(id) ? ' is-dim' : ''}`,
+      className: `node${lit.has(id) ? ' is-lit' : ''}${active && !lit.has(id) ? ' is-dim' : ''}`,
       onClick: () => setSel(pressed ? null : { kind, key }),
       onPointerEnter: e => e.pointerType === 'mouse' && setHover({ kind, key }),
       onPointerLeave: () => setHover(null),
@@ -157,7 +155,7 @@ const Relations = () => {
         >
           {stacks.map(s => (
             <li key={s.name}>
-              <button {...nodeProps('s', s.name, !s.slugs.length)}>
+              <button {...nodeProps('s', s.name)}>
                 <span className='node__name'>{s.name}</span>
                 <span className='node__count notation'>{s.slugs.length}</span>
               </button>
@@ -185,15 +183,13 @@ const Relations = () => {
               );
             })}
           {geom &&
-            stacks
-              .filter(s => s.slugs.length)
-              .map(s => (
-                <path
-                  key={s.name}
-                  className={`feet${lit.has(`s:${s.name}`) ? ' is-on' : ''}`}
-                  d={foot(geom.x1, geom.ys[`s:${s.name}`], -1)}
-                />
-              ))}
+            stacks.map(s => (
+              <path
+                key={s.name}
+                className={`feet${lit.has(`s:${s.name}`) ? ' is-on' : ''}`}
+                d={foot(geom.x1, geom.ys[`s:${s.name}`], -1)}
+              />
+            ))}
           {geom &&
             ps.map(p => (
               <path
@@ -234,9 +230,6 @@ const Relations = () => {
             Open {sel.key}
           </a>
         )}
-      </p>
-      <p className='schema__note'>
-        A count of 0 means I use that stack at work, but no public repo shows it yet.
       </p>
     </section>
   );

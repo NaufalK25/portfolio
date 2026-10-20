@@ -127,7 +127,6 @@ export const jobs = [
   }
 ];
 
-// Skills that are not tied to a public repo still belong in the schema (a stack with 0 rows).
 export const skills = [
   { group: 'Languages', items: ['JavaScript', 'TypeScript', 'PHP'] },
   { group: 'Backend', items: ['Node.js', 'Express', 'NestJS', 'Laravel', 'GraphQL'] },

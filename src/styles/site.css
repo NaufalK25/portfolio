@@ -372,7 +372,6 @@ html.frame-away .frame { translate: 0 -110%; }
 }
 .node__name { overflow-wrap: anywhere; }
 .node__count { color: var(--c-muted); }
-.node.is-empty { color: var(--c-muted); font-weight: 400; }
 .node.is-lit { border-color: var(--c-accent); color: var(--c-accent); }
 .join__col--stacks .node.is-lit { translate: 0.4rem 0; }
 .join__col--projects .node.is-lit { translate: -0.4rem 0; }
@@ -409,7 +408,6 @@ html.frame-away .frame { translate: 0 -110%; }
 }
 .join__rows { color: var(--c-accent); }
 .join__open { font-family: var(--f-body); font-size: var(--t-s); font-weight: 600; }
-.schema__note { margin: 0.75rem var(--gutter) 0; color: var(--c-muted); font-size: var(--t-s); }
 
 @media (max-width: 767px) {
   .work, .schema { padding-bottom: 4rem; }

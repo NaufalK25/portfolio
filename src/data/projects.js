@@ -1,5 +1,5 @@
 import snapshot from './repos.json';
-import { site, skills } from './site';
+import { site } from './site';
 
 // "foo — bar" → "foo. Bar"; strip wrapping quotes. Visible text has no dashes.
 const clean = s =>
@@ -33,10 +33,9 @@ export const img = (url, w) => url?.replace('/upload/', `/upload/f_auto,q_auto,c
 export const formatDate = iso =>
   new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
-/** Every stack (from projects and the skills list) with the projects that use it. */
+/** Every stack used by a project, with the projects that use it. */
 export function joinStacks(projects) {
   const map = new Map();
-  for (const g of skills) for (const s of g.items) map.set(s, []);
   for (const p of projects) for (const s of p.stacks) map.set(s, [...(map.get(s) || []), p.slug]);
   return [...map]
     .map(([name, slugs]) => ({ name, slugs }))
