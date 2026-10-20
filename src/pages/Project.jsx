@@ -50,64 +50,68 @@ const Project = ({ project: p }) => {
         >
           {p.description}
         </p>
-      </header>
-
-      <dl
-        className='case__record entity'
-        data-reveal='clip'
-        data-intro
-        data-delay='0.35'
-      >
-        <div className='entity__row'>
-          <dt className='notation'>
-            <abbr title='primary key'>PK</abbr> name
-          </dt>
-          <dd>{p.name}</dd>
-        </div>
-        <div className='entity__row'>
-          <dt className='notation'>created_at</dt>
-          <dd>
-            <time dateTime={p.created}>{formatDate(p.created)}</time>
-          </dd>
-        </div>
-        <div className='entity__row'>
-          <dt className='notation'>stack</dt>
-          <dd>{p.stacks.join(', ')}</dd>
-        </div>
-        {p.homepage && (
+        <dl
+          className='case__record entity'
+          data-reveal='clip'
+          data-intro
+          data-delay='0.35'
+        >
           <div className='entity__row'>
-            <dt className='notation'>homepage</dt>
+            <dt className='notation'>
+              <abbr title='primary key'>PK</abbr> name
+            </dt>
+            <dd>{p.name}</dd>
+          </div>
+          <div className='entity__row'>
+            <dt className='notation'>created_at</dt>
             <dd>
-              <External href={p.homepage}>{p.homepage.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</External>
+              <time dateTime={p.created}>{formatDate(p.created)}</time>
             </dd>
           </div>
-        )}
-        <div className='entity__row'>
-          <dt className='notation'>repository</dt>
-          <dd>
-            <External href={p.repo}>{p.repo.replace('https://github.com/', '')}</External>
-          </dd>
-        </div>
-        {p.license && (
           <div className='entity__row'>
-            <dt className='notation'>license</dt>
-            <dd>{p.licenseUrl ? <External href={p.licenseUrl}>{p.license}</External> : p.license}</dd>
+            <dt className='notation'>stack</dt>
+            <dd>{p.stacks.join(', ')}</dd>
           </div>
-        )}
-      </dl>
+          {p.homepage && (
+            <div className='entity__row'>
+              <dt className='notation'>homepage</dt>
+              <dd>
+                <External href={p.homepage}>{p.homepage.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</External>
+              </dd>
+            </div>
+          )}
+          <div className='entity__row'>
+            <dt className='notation'>repository</dt>
+            <dd>
+              <External href={p.repo}>{p.repo.replace('https://github.com/', '')}</External>
+            </dd>
+          </div>
+          {p.license && (
+            <div className='entity__row'>
+              <dt className='notation'>license</dt>
+              <dd>{p.licenseUrl ? <External href={p.licenseUrl}>{p.license}</External> : p.license}</dd>
+            </div>
+          )}
+        </dl>
+      </header>
 
       {p.thumbnail && (
         <figure className='case__shot'>
-          <img
-            src={img(p.thumbnail, 1400)}
-            srcSet={`${img(p.thumbnail, 600)} 600w, ${img(p.thumbnail, 800)} 800w, ${img(p.thumbnail, 1400)} 1400w, ${img(p.thumbnail, 2000)} 2000w`}
-            sizes='(min-width: 768px) 75vw, 100vw'
-            alt={`Screenshot of ${p.name}`}
-            width='1400'
-            height='875'
-            fetchPriority='high'
-            decoding='async'
-          />
+          <div
+            className='case__stage'
+            data-reveal='scale'
+          >
+            <img
+              src={img(p.thumbnail, 1400)}
+              srcSet={`${img(p.thumbnail, 600)} 600w, ${img(p.thumbnail, 800)} 800w, ${img(p.thumbnail, 1400)} 1400w, ${img(p.thumbnail, 2000)} 2000w`}
+              sizes='(min-width: 768px) 75vw, 100vw'
+              alt={`Screenshot of ${p.name}`}
+              width='1400'
+              height='875'
+              fetchPriority='high'
+              decoding='async'
+            />
+          </div>
           <figcaption className='notation'>{p.name}.thumbnail</figcaption>
         </figure>
       )}

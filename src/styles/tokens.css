@@ -43,6 +43,7 @@
   --c-accent: #0e6e46;
   --c-panel: #dcdfdb;
   --c-curtain: var(--c-fg);
+  --c-stage: #111412;
   --c-on-ink-accent: #62c793;
 
   --f-display: 'Archivo', 'Archivo Fallback', sans-serif;
@@ -78,6 +79,7 @@
   --c-line: rgb(228 232 227 / 0.18);
   --c-accent: #62c793;
   --c-panel: #181c19;
+  --c-stage: #070807;
   --c-on-ink-accent: #0e6e46;
   color-scheme: dark;
 }

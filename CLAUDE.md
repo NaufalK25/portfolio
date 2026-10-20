@@ -133,7 +133,6 @@ Gotchas:
 **Design items the critics flagged:**
 
 - The project hover preview covers the neighbouring rows.
-- The case page has an empty block left of the record table, and narrow screenshots sit letterboxed in a wide frame.
 - Mobile About has a gap above the photo.
 
 **Deploy:**

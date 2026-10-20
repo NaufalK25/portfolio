@@ -117,7 +117,8 @@ channel | handle rows ...                colophon (where the rows come from)
 ```
 
 Case page (`/work/<slug>`): breadcrumb `project / slug` → title fitted to width → description →
-record table (created, stack, homepage, repository, license) → screenshot in a frame → notes
+record table beside the summary (created, stack, homepage, repository, license) → screenshot centred
+on a full-bleed dark stage that opens like an aperture (`--c-stage`, fixed height, no layout shift) → notes
 (from the repo README, facts only) → "shares a stack with" → next record.
 
 404: `ERROR: foreign key violation`, `Key (path)=(/x) is not present in table "page"`, way back.

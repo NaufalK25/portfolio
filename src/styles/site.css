@@ -530,28 +530,28 @@ html.frame-away .frame { translate: 0 -110%; }
   font-size: min(var(--t-mega), calc((100vw - 2 * var(--gutter)) / (var(--len) * 0.6)));
   white-space: nowrap;
 }
-.case__summary { grid-column: 1 / 8; font-size: var(--t-m); line-height: 1.4; max-width: 40rem; }
-.case__record {
-  width: min(100% - 2 * var(--gutter), 46rem);
-  margin: 3rem var(--gutter) 0 auto;
-  border-top-width: 3px;
+/* Summary and record share a row, hung on col 1 and col 8, so no block is left empty. */
+.case__summary { grid-column: 1 / 7; align-self: start; font-size: var(--t-m); line-height: 1.4; max-width: 40rem; }
+.case__record { grid-column: 8 / -1; align-self: start; margin-top: 0.4rem; border-top-width: 3px; }
+@media (max-width: 1023px) {
+  .case__summary, .case__record { grid-column: 1 / -1; }
+  .case__record { max-width: 46rem; margin-top: 1.5rem; }
 }
 /* A record row holds at most one link: the whole row is its target, so wrapped URLs stay tappable. */
 .case__record .entity__row { position: relative; grid-template-columns: 9rem 1fr; min-height: 2.75rem; align-items: center; }
 .case__record .link::after { content: ''; position: absolute; inset: 0; }
 .case__record dt { display: block; }
 .case__record abbr { color: var(--c-accent); }
-.case__shot { margin: 5rem var(--gutter) 0; }
-.case__shot img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  max-height: 80vh;
-  object-fit: contain;
-  background: var(--c-panel);
-  border: 1px solid var(--c-line);
+/* Cinematic stage: a full-bleed dark screen of fixed height (no layout shift on load),
+   the screenshot centred in it at its own shape, opening like an aperture on scroll. */
+.case__shot { margin-top: 5rem; }
+.case__stage {
+  height: clamp(18rem, 62vw, 85svh);
+  padding: clamp(1rem, 4vw, 4rem);
+  background: var(--c-stage);
 }
-.case__shot figcaption { margin-top: 0.6rem; color: var(--c-muted); }
+.case__stage img { width: 100%; height: 100%; object-fit: contain; }
+.case__shot figcaption { margin: 0.6rem var(--gutter) 0; color: var(--c-muted); }
 .case__notes, .case__related { margin-top: 5rem; row-gap: 1rem; }
 .case__label { grid-column: 1 / 4; color: var(--c-muted); padding-top: 0.4rem; }
 .case__body { grid-column: 4 / 11; display: grid; gap: 1.25rem; }
@@ -638,8 +638,6 @@ html.frame-away .frame { translate: 0 -110%; }
 }
 
 @media (max-width: 767px) {
-  .case__summary { grid-column: 1 / -1; }
-  .case__record { margin-inline: var(--gutter); width: auto; }
   .case__record .entity__row { grid-template-columns: 6.5rem 1fr; }
   .case__record dd { overflow-wrap: anywhere; }
   .case__label, .case__body, .case__joins { grid-column: 1 / -1; }
