@@ -1,6 +1,5 @@
 import { useData } from '../data/context';
 import { formatDate, img, related } from '../data/projects';
-import { notes } from '../data/site';
 
 const External = ({ href, children }) => (
   <a
@@ -19,7 +18,7 @@ const Project = ({ project: p }) => {
   const i = projects.findIndex(x => x.slug === p.slug);
   const next = projects[(i + 1) % projects.length];
   const joined = related(p, projects);
-  const text = notes[p.slug];
+  const text = p.notes;
 
   return (
     <article className='case'>
@@ -116,7 +115,7 @@ const Project = ({ project: p }) => {
         </figure>
       )}
 
-      {text && (
+      {text.length > 0 && (
         <section
           className='case__notes grid'
           aria-labelledby='notes-title'

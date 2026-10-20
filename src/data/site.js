@@ -2,8 +2,7 @@
 // Assumptions to confirm (also listed in the hand-off):
 // - Production URL is https://muhammad-naufal-kateni.netlify.app (the portfolio repo's homepage in the API).
 // - "About 2 years" of experience is copied from the previous site and may be out of date.
-// - Project notes are condensed from each repo's README on GitHub; repos without a useful README
-//   (simple-video-meet, news-portal) have no notes and show the API description only.
+// Project notes are not here: they come from portfolio-api (edited in the dashboard).
 
 export const site = {
   name: 'Muhammad Naufal Kateni',
@@ -134,39 +133,3 @@ export const skills = [
   { group: 'Frontend', items: ['React', 'Tailwind CSS', 'HTML5', 'CSS3'] },
   { group: 'Tools', items: ['Docker', 'Git', 'Postman'] }
 ];
-
-// Facts from each repo's README. Keyed by repo name.
-export const notes = {
-  orm2erd: [
-    'You already wrote the models, so the schema exists. orm2erd reads them and writes the ERD, instead of someone drawing and maintaining one by hand.',
-    'It detects the ORM (Prisma, Sequelize, Mongoose, TypeORM, Drizzle, MikroORM), resolves the entry points, normalizes everything into one intermediate model, then emits Mermaid, DBML, PlantUML, D2 and more from a single parse.',
-    'A --check flag fails CI when the committed diagram falls behind the models. Published on npm under the MIT license.'
-  ],
-  'portfolio-api': [
-    'The API behind this page. NestJS and Prisma on PostgreSQL (Neon), with JWT auth, a sync that pulls repos from GitHub, Cloudinary for the thumbnails and Swagger docs.',
-    'Every project row on this site, and every line in the schema above it, comes from its /repo endpoint.'
-  ],
-  'portfolio-dashboard': [
-    'The CMS-style dashboard where I edit the repos, their metadata and stats that portfolio-api serves.',
-    'React 19 with TypeScript and Vite, token-based login behind Google reCAPTCHA, tables for the records and Recharts for the stats.'
-  ],
-  portfolio: [
-    'This site. React and Vite, prerendered at build time so every page ships real HTML, with the project rows read from portfolio-api.',
-    'The design treats the work as a schema: a developer entity, project rows, and stacks joined to projects.'
-  ],
-  'following-vs-followers': [
-    'Compares who you follow on GitHub with who follows you back, in both directions.',
-    'Both lists are fetched in parallel to keep large accounts fast, up to a limit of 30,000 followers or following.'
-  ],
-  'bookmark-api': [
-    'A bookmark service with two front doors: a REST API documented in Swagger and a GraphQL endpoint, both on NestJS with Prisma and PostgreSQL.'
-  ],
-  'secondhand-api': [
-    'Backend for SecondHand, an e-commerce clone built as a team project (group 6) and mirrored here from GitLab.',
-    'Express with Sequelize migrations and seeders on PostgreSQL, deployed to Heroku with separate staging and production apps.'
-  ],
-  'user-game-api': ['Stores user accounts, biodata and game histories. Express on PostgreSQL, deployed to Heroku.'],
-  'tes-kasir-alan': [
-    'A point-of-sale app built as the technical test for a Web Developer role at Alan Creative. Laravel on the back end, React on the front.'
-  ]
-};

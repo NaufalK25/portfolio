@@ -8,6 +8,22 @@ const clean = s =>
     .replace(/^"(.*)"$/, '$1')
     .replace(/\s+[—–]\s+(\w)/g, (_, c) => `. ${c.toUpperCase()}`);
 
+// Notes come from the dashboard as paragraphs. Accept a JSON-encoded array or text with blank lines between paragraphs.
+const asList = n => {
+  try {
+    const v = JSON.parse(n);
+    return Array.isArray(v) ? v : [n];
+  } catch {
+    return [n];
+  }
+};
+const toNotes = notes =>
+  (notes || [])
+    .flatMap(asList)
+    .flatMap(n => String(n).split(/\n\s*\n/))
+    .map(p => p.trim().replace(/\s+/g, ' '))
+    .filter(Boolean);
+
 export const toProjects = repos =>
   repos
     .map(r => ({
@@ -21,7 +37,8 @@ export const toProjects = repos =>
       repo: r.htmlUrl,
       license: r.licenseName || null,
       licenseUrl: r.licenseUrl || null,
-      thumbnail: r.thumbnail || null
+      thumbnail: r.thumbnail || null,
+      notes: toNotes(r.notes)
     }))
     .sort((a, b) => new Date(b.created) - new Date(a.created));
 

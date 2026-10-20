@@ -6,7 +6,7 @@ import { loadEnv } from 'vite';
 const out = new URL('../src/data/repos.json', import.meta.url);
 const env = { ...loadEnv('production', process.cwd(), 'VITE_'), ...process.env };
 const base = env.VITE_BASE_URL;
-const keep = ['name', 'description', 'stacks', 'created_at', 'homepage', 'htmlUrl', 'licenseName', 'licenseUrl', 'thumbnail'];
+const keep = ['name', 'description', 'stacks', 'created_at', 'homepage', 'htmlUrl', 'licenseName', 'licenseUrl', 'thumbnail', 'notes'];
 
 try {
   const res = await fetch(`${base}/repo`, { signal: AbortSignal.timeout(15000) });
