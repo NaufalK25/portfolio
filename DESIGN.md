@@ -57,6 +57,8 @@ dark theme, at a softened value.
 **Type:** Archivo variable (width 62–125, weight 100–900) does everything: display at width 112–125,
 weight 800, tracking −0.045em; text at width 100, weight 400. Martian Mono 400 is used only for
 schema notation (column types, PK/FK, cardinality, the query result), never for generic labels.
+Exception, kept by the owner because it looks better: the small key labels of key/value lists
+(contact channels, skill groups), the © line and "next record" stay in mono.
 
 **Grid:** 12 columns, gutter = outer margin. Hang lines: col 1, col 5, col 9.
 Section rhythm: hero full viewport → index tight → diagram airy → about normal → footer full.

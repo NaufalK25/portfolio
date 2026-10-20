@@ -23,7 +23,8 @@ developer and the author of `orm2erd`:
 - The loader shows the real `GET /api/repo` request.
 - The 404 page is a foreign-key violation.
 
-Mono type (Martian Mono) is only for schema notation, never generic labels.
+Mono type (Martian Mono) is only for schema notation, never generic labels. The owner keeps a few
+small labels in mono on purpose (see `DESIGN.md`, Type); don't flag those.
 
 ## Stack and constraints
 
