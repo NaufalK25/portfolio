@@ -61,7 +61,7 @@ export const notes = {
   ],
   'portfolio-api': [
     'The API behind this page. NestJS and Prisma on PostgreSQL (Neon), with JWT auth, a sync that pulls repos from GitHub, Cloudinary for the thumbnails and Swagger docs.',
-    'It runs in Docker. Every project row on this site, and every line in the schema above it, comes from its /repo endpoint.'
+    'Every project row on this site, and every line in the schema above it, comes from its /repo endpoint.'
   ],
   'portfolio-dashboard': [
     'The CMS-style dashboard where I edit the repos, their metadata and stats that portfolio-api serves.',
