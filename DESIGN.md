@@ -142,6 +142,10 @@ on a full-bleed dark stage that opens like an aperture (`--c-stage`, fixed heigh
 
 ## Idle decision
 
+The data dashes run without end while their section is on screen. That is a deliberate
+exception to the "no endless loops" rule, kept by the owner: it is the idle state of the concept
+(data flowing along relations), paused off screen and off under reduced motion.
+
 The home page moves at rest (data dashes on the hero relation and the join diagram). Case pages
 and the 404 stay still at rest on purpose: they are records to read, and their hovers (rows,
 links, next record) carry the motion.

@@ -122,17 +122,15 @@ Gotchas:
 
 ## Open items
 
-**Need the owner:**
+**Settled by the owner (don't raise again):**
 
-- Rewrite the project descriptions and thumbnails; they come from the dashboard and API. "Simple video meeting app" and the stale Swagger screenshots are the biggest Content drag.
-- Confirm "about 2 years" of experience (copied from the old site, may be stale).
-- The hero lists Redis, MongoDB and Docker, but the schema shows 0 repos for them. Tag the repos or drop the claim.
-- simple-video-meet and news-portal have no notes (empty READMEs).
+- Project thumbnails (Swagger screenshots for the API projects) and the short descriptions stay as they are.
+- Redis, MongoDB and Docker in the hero and bio are from his professional work; the schema only shows public repos, so 0 rows is expected.
+- simple-video-meet and news-portal have no notes on purpose.
 
 **Design items the critics flagged:**
 
-- The project hover preview covers the neighbouring rows.
-- Mobile About has a gap above the photo.
+- Mobile About has a gap above the photo (not re-checked).
 
 **Deploy:**
 
