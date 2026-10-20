@@ -40,7 +40,7 @@ export const developer = [
 
 export const bio = [
   'I’m a fullstack developer with about two years of experience, focused on the backend. I build REST APIs in Node.js with Express and NestJS, written in TypeScript, use Redis for caching and Docker to ship them.',
-  'I also do database design, version everything in Git, and document and test APIs before anyone else has to. On the frontend and CMS side I’ve worked with React, Laravel and WordPress.'
+  'I also do database design, work in Git, and document and test my APIs. On the frontend and CMS side I’ve worked with React, Laravel and WordPress.'
 ];
 
 // Skills that are not tied to a public repo still belong in the schema (a stack with 0 rows).
@@ -79,7 +79,7 @@ export const notes = {
     'A bookmark service with two front doors: a REST API documented in Swagger and a GraphQL endpoint, both on NestJS with Prisma and PostgreSQL.'
   ],
   'secondhand-api': [
-    'Backend for SecondHand, a marketplace built as a team project (group 6) and mirrored here from GitLab.',
+    'Backend for SecondHand, an e-commerce clone built as a team project (group 6) and mirrored here from GitLab.',
     'Express with Sequelize migrations and seeders on PostgreSQL, deployed to Heroku with separate staging and production apps.'
   ],
   'user-game-api': ['Stores user accounts, biodata and game histories. Express on PostgreSQL, deployed to Heroku.'],

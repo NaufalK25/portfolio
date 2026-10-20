@@ -125,8 +125,7 @@ Gotchas:
 **Need the owner:**
 
 - Rewrite the project descriptions and thumbnails; they come from the dashboard and API. "Simple video meeting app" and the stale Swagger screenshots are the biggest Content drag.
-- Confirm copy written in his voice: the hero statement, the bio phrases "version everything in Git" and "before anyone else has to", and "about 2 years" (may be stale).
-- Confirm the secondhand-api notes: "marketplace" and "group 6" were inferred from the repo name.
+- Confirm "about 2 years" of experience (copied from the old site, may be stale).
 - The hero lists Redis, MongoDB and Docker, but the schema shows 0 repos for them. Tag the repos or drop the claim.
 - simple-video-meet and news-portal have no notes (empty READMEs).
 
