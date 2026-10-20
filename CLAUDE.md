@@ -58,29 +58,29 @@ during development. Don't edit the user's `.env*` files; mention it instead.
 
 ## Architecture
 
-```
-index.html             head script (flags: js, motion, dark, no-loader) + #loader + #curtain + #root
-src/main.jsx           starts the live API fetch, hydrates (prod) or renders (dev) into #root
-src/entry-server.jsx   renderToString for the prerender
-src/App.jsx            data state (snapshot → live), per-route title/meta, page switch
-src/router.js          pushState router wired to the engine: usePath, navigate, useEngine, usePage
-src/engine/            motion engine ported from the skill to JS (no GL): scroll (Lenis on the
-                       gsap ticker), reveal (data-split / data-reveal / data-intro / data-parallax),
-                       loader, transition, index (boot / leave / cleanup / enter / onPage)
-src/motion/setup.js    loader exit, SQL row curtain transition, header hide on scroll
-src/motion/flow.js     idle state: dashes flow along relation lines (ticker, paused off screen)
-src/data/site.js       ALL non-project copy: bio, contacts, developer entity, skills, project notes
-src/data/projects.js   normalize API repos, Cloudinary img(), joinStacks, related, pageMeta, fetchProjects
-src/data/repos.json    build-time API snapshot (first render and prerender use it)
-src/sections/          Hero, WorkIndex (table + pointer preview), Relations (join diagram), About
-src/pages/             Home, Project (case page /work/<slug>), NotFound
-src/components/        Header (four-corner frame, theme toggle), Footer (Email me finale)
-src/styles/            tokens.css, engine.css, site.css
-nginx.conf             Docker: serves /work/<slug>/index.html, real 404 via /404.html
-```
+Look in the folders below for specifics; this is the map, not an inventory.
 
-Routing: `/` (home), `/work/<slug>` (slug = repo name), and everything else is the 404. A project
-added after the last build lands on `404.html`, which renders the project once the live API answers.
+- **Shell** (`index.html`): an inline head script sets the root classes (`js`, `motion`, `dark`,
+  `no-loader`) before first paint. The loader, the transition curtain and `#root` live here.
+- **Entries** (`src/main.jsx`, `src/entry-server.jsx`): the client hydrates the prerendered HTML in
+  production and renders fresh in dev. The server entry is used only by the prerender.
+- **App and routing** (`src/App.jsx`, `src/router.js`): a small `pushState` router. `App` holds the
+  project data and picks the page and its meta from the path. Routes are `/`, `/work/<slug>`
+  (slug = repo name) and the 404 for everything else.
+- **Data** (`src/data/`): `site.js` holds all non-project copy. `projects.js` turns API repos into
+  project objects and holds the helpers derived from them. `repos.json` is the build snapshot.
+  The UI renders the snapshot first, then swaps in live rows when the API answers. If the request
+  fails or returns no rows, the snapshot stays.
+- **Motion** (`src/engine/`, `src/motion/`): the engine is generic (scroll, reveals, loader, page
+  transitions, page lifecycle). `motion/` holds this site's choreography on top of it.
+- **UI** (`src/pages/`, `src/sections/`, `src/components/`): one page per route, the blocks of the
+  home page, and shared chrome such as the header and footer.
+- **Styles** (`src/styles/`): tokens, engine styles, site styles. Plain CSS.
+- **Build and deploy** (`scripts/`, `nginx.conf`, `Dockerfile`): snapshot, prerender, and serving
+  the prerendered routes with a real 404.
+
+A project added after the last build has no prerendered page: it lands on `404.html`, which renders
+the project once the live API answers.
 
 ## Rules that keep it working (learned the hard way)
 
