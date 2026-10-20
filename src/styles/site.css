@@ -277,7 +277,8 @@ html.frame-away .frame { translate: 0 -110%; }
 .row__year { grid-column: 12 / -1; justify-self: end; }
 .row__thumb { display: none; }
 
-.row__link:focus-visible { outline-offset: -2px; color: var(--c-bg); }
+/* Rows run edge to edge, so the ring sits inside the ink fill, in the green that reads on ink. */
+.row__link:focus-visible { outline-color: var(--c-on-ink-accent); outline-offset: -4px; color: var(--c-bg); }
 .row__link:focus-visible .row__fill, .row__link:active .row__fill { transform: none; }
 .row__link:focus-visible .row__name { translate: 0.6rem 0; }
 .row__link:focus-visible .row__desc { color: var(--c-bg); }
