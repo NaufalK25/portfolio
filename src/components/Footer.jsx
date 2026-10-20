@@ -57,7 +57,16 @@ const Footer = () => (
           >
             portfolio-dashboard
           </a>
-          . Set in Archivo and Martian Mono.
+          . Set in Archivo and Martian Mono. Design inspired by the sites on{' '}
+          <a
+            className='link'
+            href='https://www.awwwards.com/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Awwwards
+          </a>
+          .
         </p>
         <p className='notation'>
           © {new Date().getFullYear()} {site.name}
