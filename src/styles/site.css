@@ -310,7 +310,6 @@ html.frame-away .frame { translate: 0 -110%; }
   z-index: var(--z-preview);
   width: clamp(15rem, 20vw, 22rem);
   aspect-ratio: 16 / 10;
-  translate: 1.25rem 1.5rem;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;

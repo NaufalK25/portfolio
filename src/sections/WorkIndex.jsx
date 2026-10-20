@@ -28,6 +28,8 @@ const WorkIndex = () => {
     const image = box.querySelector('img');
     const x = gsap.quickTo(box, 'x', { duration: 0.6, ease: ease.soft });
     const y = gsap.quickTo(box, 'y', { duration: 0.6, ease: ease.soft });
+    // The preview hangs above and right of the pointer: the list is read downward, so the next rows stay visible.
+    gsap.set(box, { yPercent: -100 });
     const rot = gsap.quickTo(box, 'rotation', { duration: 0.8, ease: ease.soft });
     let px = 0;
     let py = 0;
@@ -35,8 +37,8 @@ const WorkIndex = () => {
     const move = e => {
       px = e.clientX;
       py = e.clientY;
-      x(px);
-      y(py);
+      x(px + 20);
+      y(py - 16);
       rot(gsap.utils.clamp(-8, 8, (px - lastX) * 0.4));
       lastX = px;
     };
@@ -46,7 +48,7 @@ const WorkIndex = () => {
       if (image.getAttribute('src') !== src) image.src = src;
       if (e.type === 'focus') {
         const r = e.currentTarget.getBoundingClientRect();
-        gsap.set(box, { x: r.left + r.width * 0.55, y: r.bottom - r.height * 0.4 });
+        gsap.set(box, { x: r.left + r.width * 0.55, y: r.top - 8 });
       }
       gsap.to(box, {
         autoAlpha: 1,
