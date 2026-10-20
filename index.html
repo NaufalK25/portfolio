@@ -1,102 +1,120 @@
-<!DOCTYPE html>
-<html
-  lang="en"
-  class="light"
->
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Muhammad Naufal Kateni</title>
+    <script>
+      // Runs before first paint. A block keeps these names out of the global scope.
+      {
+        const html = document.documentElement;
+        const matches = query => matchMedia(query).matches;
+        // Storage access throws when site data is blocked: treat that as empty.
+        const read = (storage, key) => {
+          try {
+            return globalThis[storage].getItem(key);
+          } catch {
+            return null;
+          }
+        };
+
+        html.classList.add('js');
+        if (!matches('(prefers-reduced-motion: reduce)')) html.classList.add('motion');
+
+        // The loader runs once per visit, on the home page, on screens wider than a phone.
+        const seen = read('sessionStorage', 'loaded');
+        try {
+          sessionStorage.setItem('loaded', '1');
+        } catch {}
+        if (seen || location.pathname !== '/' || matches('(max-width: 767px)')) html.classList.add('no-loader');
+
+        const mode = read('localStorage', 'mode');
+        if (mode === 'dark' || (!mode && matches('(prefers-color-scheme: dark)'))) html.classList.add('dark');
+      }
+    </script>
+    <!--head-->
+    <link
+      rel="preload"
+      href="/fonts/archivo-100_900-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/martian-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://res.cloudinary.com"
+    />
     <link
       rel="icon"
       type="image/svg+xml"
       href="/favicon.svg"
     />
-    <meta
-      name="title"
-      content="Muhammad Naufal Kateni"
-    />
-    <meta
-      name="description"
-      content="Muhammad Naufal Kateni's portfolio website"
-    />
-
-    <!-- Open Graph / Facebook -->
-    <meta
-      property="og:title"
-      content="Muhammad Naufal Kateni"
-    />
-    <meta
-      property="og:site_name"
-      content="Muhammad Naufal Kateni"
-    />
-    <meta
-      property="og:type"
-      content="website"
-    />
-    <meta
-      property="og:url"
-      content="https://muhammad-naufal-kateni.netlify.app/"
-    />
-    <meta
-      property="og:description"
-      content="Muhammad Naufal Kateni's portfolio website"
-    />
-    <meta
-      property="og:image"
-      content="img/muhammad-naufal-kateni.jpg"
-    />
-    <meta
-      property="og:image:width"
-      content="1200"
-    />
-    <meta
-      property="og:image:height"
-      content="600"
-    />
-    <meta
-      property="og:image:alt"
-      content="Muhammad Naufal Kateni's portfolio website"
+    <link
+      rel="apple-touch-icon"
+      href="/apple-touch-icon.png"
     />
     <meta
       name="theme-color"
-      content="#f1f5f9"
-    />
-
-    <!-- Twitter -->
-    <meta
-      property="twitter:card"
-      content="summary_large_image"
+      content="#E7E9E6"
     />
     <meta
       name="twitter:site"
       content="@NaufalK2511"
     />
-    <meta
-      property="twitter:title"
-      content="Muhammad Naufal Kateni"
-    />
-    <meta
-      property="twitter:url"
-      content="https://muhammad-naufal-kateni.netlify.app/"
-    />
-    <meta
-      property="twitter:description"
-      content="Muhammad Naufal Kateni's portfolio website"
-    />
-    <meta
-      property="twitter:image"
-      content="img/muhammad-naufal-kateni.jpg"
-    />
   </head>
 
-  <body
-    class="flex min-h-screen flex-col scroll-smooth font-roboto bg-slate-200 text-slate-800 dark:bg-gray-800 dark:text-slate-100"
-  >
-    <div id="root"></div>
+  <body>
+    <a
+      class="skip-link"
+      href="#main"
+      data-no-transition
+      >Skip to content</a
+    >
+    <div
+      id="curtain"
+      aria-hidden="true"
+    >
+      <div class="curtain__panel"></div>
+      <div class="curtain__panel"></div>
+      <div class="curtain__panel"></div>
+      <div class="curtain__panel"></div>
+      <div class="curtain__panel"></div>
+      <p class="curtain__query"></p>
+    </div>
+    <div
+      id="loader"
+      role="status"
+      aria-label="Loading"
+    >
+      <div class="loader__inner">
+        <p
+          class="loader__req"
+          data-loader-req
+        >
+          GET /api/repo
+        </p>
+        <p
+          class="loader__count"
+          data-loader-count
+        >
+          000
+        </p>
+      </div>
+      <div
+        class="loader__bar"
+        data-loader-bar
+      ></div>
+    </div>
+    <div id="root"><!--app-html--></div>
     <script
       type="module"
       src="/src/main.jsx"

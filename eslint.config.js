@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 
 export default [
-  { ignores: ['dist'] },
+  { ignores: ['dist', 'dist-ssr'] },
   js.configs.recommended,
   react.configs.flat.recommended,
   react.configs.flat['jsx-runtime'],
@@ -29,5 +29,6 @@ export default [
       ],
       'react/prop-types': 'off'
     }
-  }
+  },
+  { files: ['scripts/**'], languageOptions: { globals: globals.node } }
 ];

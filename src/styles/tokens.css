@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/archivo-100_900-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Martian';
+  src: url('/fonts/martian-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Metric-matched fallbacks: text keeps its box while the webfonts load (no layout shift). */
+@font-face {
+  font-family: 'Archivo Fallback';
+  src: local('Arial'), local('Liberation Sans'), local('Helvetica');
+  size-adjust: 101.9%;
+  ascent-override: 86.2%;
+  descent-override: 20.6%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Martian Fallback';
+  src: local('Courier New'), local('Liberation Mono'), local('Courier');
+  size-adjust: 116.7%;
+  ascent-override: 85.7%;
+  descent-override: 17.1%;
+  line-gap-override: 0%;
+}
+
+:root {
+  /* Drafting paper, pen, relation green (see DESIGN.md) */
+  --c-bg: #e7e9e6;
+  --c-fg: #111412;
+  --c-muted: #525955;
+  --c-line: rgb(17 20 18 / 0.16);
+  --c-accent: #0e6e46;
+  --c-panel: #dcdfdb;
+  --c-curtain: var(--c-fg);
+  --c-on-ink-accent: #62c793;
+
+  --f-display: 'Archivo', 'Archivo Fallback', sans-serif;
+  --f-body: 'Archivo', 'Archivo Fallback', sans-serif;
+  --f-mono: 'Martian', 'Martian Fallback', monospace;
+
+  --t-mega: clamp(4.2rem, 15.5vw, 15rem);
+  --t-xl: clamp(2.4rem, 1.2rem + 5vw, 6.5rem);
+  --t-l: clamp(1.6rem, 1.2rem + 1.8vw, 2.75rem);
+  --t-m: clamp(1.2rem, 1.05rem + 0.6vw, 1.6rem);
+  --t-body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --t-s: 0.875rem;
+  --t-xs: 0.75rem;
+
+  --u: clamp(0.5rem, 0.35rem + 0.6vw, 1rem);
+  --gutter: clamp(1rem, 0.6rem + 1.6vw, 2.5rem);
+  --radius: 0;
+
+  --e-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --e-soft: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  --z-content: 1;
+  --z-preview: 40;
+  --z-header: 50;
+  --z-curtain: 90;
+  --z-loader: 100;
+}
+
+:root.dark {
+  --c-bg: #101311;
+  --c-fg: #e4e8e3;
+  --c-muted: #9ba49e;
+  --c-line: rgb(228 232 227 / 0.18);
+  --c-accent: #62c793;
+  --c-panel: #181c19;
+  --c-on-ink-accent: #0e6e46;
+  color-scheme: dark;
+}

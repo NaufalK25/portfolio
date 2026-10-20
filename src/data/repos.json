@@ -1,0 +1,173 @@
+[
+  {
+    "name": "bookmark-api",
+    "description": "Simple Bookmark API built with NestJS and Prisma",
+    "stacks": [
+      "TypeScript",
+      "NestJS",
+      "GraphQL",
+      "PostgreSQL"
+    ],
+    "created_at": "2023-11-19T14:35:30Z",
+    "homepage": "https://naufalk25-bookmark-api.vercel.app/",
+    "htmlUrl": "https://github.com/NaufalK25/bookmark-api",
+    "licenseName": "",
+    "licenseUrl": "",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1702664056/portfolio/bookmark-api.jpg"
+  },
+  {
+    "name": "following-vs-followers",
+    "description": "\"Who are you following that isn't following back? Who's following you that you haven't followed yet? Find out instantly.\"",
+    "stacks": [
+      "Tailwind CSS",
+      "TypeScript",
+      "React"
+    ],
+    "created_at": "2024-12-09T11:23:38Z",
+    "homepage": "https://following-vs-followers.netlify.app/",
+    "htmlUrl": "https://github.com/NaufalK25/following-vs-followers",
+    "licenseName": "",
+    "licenseUrl": "",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1746725271/portfolio/following-vs-followers.png"
+  },
+  {
+    "name": "portfolio",
+    "description": "My portfolio website built with React",
+    "stacks": [
+      "Tailwind CSS",
+      "JavaScript",
+      "React"
+    ],
+    "created_at": "2023-09-20T12:25:17Z",
+    "homepage": "https://naufalkateni.com/",
+    "htmlUrl": "https://github.com/NaufalK25/portfolio",
+    "licenseName": "",
+    "licenseUrl": "",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1783925479/portfolio/sogx77mrtew6al3nk9ir.png"
+  },
+  {
+    "name": "simple-video-meet",
+    "description": "Simple video meeting app",
+    "stacks": [
+      "TypeScript",
+      "React",
+      "Node.js",
+      "Express"
+    ],
+    "created_at": "2024-02-25T11:50:07",
+    "homepage": "https://simple-video-meet.netlify.app/",
+    "htmlUrl": "https://github.com/NaufalK25/simple-video-meet",
+    "licenseName": "",
+    "licenseUrl": "",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1708872144/portfolio/simple-video-meet.png"
+  },
+  {
+    "name": "secondhand-api",
+    "description": "API for SecondHand website",
+    "stacks": [
+      "Node.js",
+      "Express",
+      "PostgreSQL"
+    ],
+    "created_at": "2022-08-09T13:53:23Z",
+    "homepage": "",
+    "htmlUrl": "https://github.com/NaufalK25/secondhand-api",
+    "licenseName": "",
+    "licenseUrl": "",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1702711995/portfolio/secondhand-api.jpg"
+  },
+  {
+    "name": "user-game-api",
+    "description": "Simple game api that store user account, biodata, and game histories",
+    "stacks": [
+      "Bootstrap",
+      "Node.js",
+      "Express",
+      "PostgreSQL"
+    ],
+    "created_at": "2022-04-26T04:33:11Z",
+    "homepage": "",
+    "htmlUrl": "https://github.com/NaufalK25/user-game-api",
+    "licenseName": "",
+    "licenseUrl": "",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1702721264/portfolio/user-game-api.png"
+  },
+  {
+    "name": "tes-kasir-alan",
+    "description": "Simple point of sale system",
+    "stacks": [
+      "Tailwind CSS",
+      "React",
+      "Laravel",
+      "MySQL"
+    ],
+    "created_at": "2024-01-09T16:36:18Z",
+    "homepage": "",
+    "htmlUrl": "https://github.com/NaufalK25/tes-kasir-alan",
+    "licenseName": "",
+    "licenseUrl": "",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1746725921/portfolio/tes-kasir-alan.png"
+  },
+  {
+    "name": "news-portal",
+    "description": "Simple CRUD News App built with Laravel and React",
+    "stacks": [
+      "Tailwind CSS",
+      "React",
+      "PHP",
+      "Laravel",
+      "PostgreSQL"
+    ],
+    "created_at": "2023-12-14T05:16:26Z",
+    "homepage": "",
+    "htmlUrl": "https://github.com/NaufalK25/news-portal",
+    "licenseName": "",
+    "licenseUrl": "",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1702664138/portfolio/news-portal.jpg"
+  },
+  {
+    "name": "orm2erd",
+    "description": "Generate ERD diagrams (Mermaid, DBML, PlantUML, D2, and more) straight from your ORM's models/schema — no manual diagramming.",
+    "stacks": [
+      "TypeScript",
+      "Node.js"
+    ],
+    "created_at": "2026-07-14T11:43:57Z",
+    "homepage": "https://www.npmjs.com/package/orm2erd",
+    "htmlUrl": "https://github.com/NaufalK25/orm2erd",
+    "licenseName": "MIT License",
+    "licenseUrl": "https://api.github.com/licenses/mit",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1790582025/portfolio/orm2erd.png"
+  },
+  {
+    "name": "portfolio-dashboard",
+    "description": "A CMS-style dashboard for managing my portfolio content",
+    "stacks": [
+      "Tailwind CSS",
+      "TypeScript",
+      "React"
+    ],
+    "created_at": "2023-12-18T06:32Z",
+    "homepage": "https://naufalk25-portfolio-dashboard.netlify.app/",
+    "htmlUrl": "https://github.com/NaufalK25/portfolio-dashboard",
+    "licenseName": "",
+    "licenseUrl": "",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1748229620/portfolio/portfolio-dashboard.png"
+  },
+  {
+    "name": "portfolio-api",
+    "description": "REST API powering my portfolio website",
+    "stacks": [
+      "TypeScript",
+      "Node.js",
+      "NestJS",
+      "PostgreSQL"
+    ],
+    "created_at": "2023-12-14T14:12:24Z",
+    "homepage": "https://naufalk25-portfolio-api.vercel.app/",
+    "htmlUrl": "https://github.com/NaufalK25/portfolio-api",
+    "licenseName": "",
+    "licenseUrl": "",
+    "thumbnail": "https://res.cloudinary.com/dko04cygp/image/upload/v1748229472/portfolio/portfolio-api.png"
+  }
+]
