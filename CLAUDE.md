@@ -134,7 +134,7 @@ Gotchas:
 
 **Deploy:**
 
-- Canonical, OG and sitemap use `https://naufalkateni.com` (`site.url` in `src/data/site.js`).
+- Canonical, OG and sitemap use `https://muhammad-naufal-kateni.netlify.app` (`site.url` in `src/data/site.js`).
 - The API's CORS list excludes `www.` and Netlify previews.
 - Deploying publishes the site: confirm with the user first.
 

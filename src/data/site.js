@@ -1,6 +1,6 @@
 // Every visible string that isn't project data lives here.
 // Assumptions to confirm (also listed in the hand-off):
-// - Production URL is https://naufalkateni.com (the portfolio repo's homepage in the API).
+// - Production URL is https://muhammad-naufal-kateni.netlify.app (the portfolio repo's homepage in the API).
 // - "About 2 years" of experience is copied from the previous site and may be out of date.
 // - Project notes are condensed from each repo's README on GitHub; repos without a useful README
 //   (simple-video-meet, news-portal) have no notes and show the API description only.
@@ -10,7 +10,7 @@ export const site = {
   short: 'Naufal Kateni',
   handle: 'NaufalK25',
   role: 'Fullstack developer, mostly backend',
-  url: 'https://naufalkateni.com',
+  url: 'https://muhammad-naufal-kateni.netlify.app',
   description:
     'Muhammad Naufal Kateni is a fullstack developer who leans backend: database design and REST APIs in Node.js, NestJS and TypeScript.',
   statement:
