@@ -37,6 +37,12 @@ Motion verb: insert like a row: things slide in from a clipped line, lines draw 
 Screenshot:  the join diagram with "NestJS" selected, three relations lit in green, the result line reading "3 rows"
 ```
 
+Dial: ENERGY 3 / RHYTHM 3 / MOTION 3
+
+- ENERGY 3: a poster hero with the name at mega size, an award-site portfolio, not a quiet résumé.
+- RHYTHM 3: every section has its own composition (poster, table, diagram, asymmetric pair, finale).
+- MOTION 3: loader, SQL curtain transitions, split-text reveals, parallax, and the idle data flow.
+
 ## Art direction
 
 **Palette** (light is the default, the dark theme stays because the owner already had a toggle):
