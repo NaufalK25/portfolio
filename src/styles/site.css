@@ -78,13 +78,25 @@
   transition: transform 0.45s var(--e-out);
 }
 .btn__arrow { transition: translate 0.45s var(--e-out); }
-.btn--small { min-height: 2.25rem; padding: 0.35em 0.8em; font-size: var(--t-s); }
+.btn--small { min-height: 2.75rem; padding: 0.35em 0.8em; font-size: var(--t-s); }
 .btn:focus-visible, .btn:active { color: var(--c-bg); }
 .btn:focus-visible::before, .btn:active::before { transform: none; }
 @media (hover: hover) {
   .btn:hover { color: var(--c-bg); }
   .btn:hover::before { transform: none; }
   .btn:hover .btn__arrow { translate: 0.2em -0.2em; }
+}
+
+/* Small standalone links keep their look but get a 44px hit area. */
+.frame .draw, .case__crumb .link, .join__open { position: relative; }
+.frame .draw::after, .case__crumb .link::after, .join__open::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 2.75rem);
+  height: 2.75rem;
+  translate: -50% -50%;
 }
 
 /* Relation lines (hero, schema): dashes run along them while on screen. */
@@ -118,8 +130,8 @@ html.frame-away .frame { translate: 0 -110%; }
 .theme {
   display: grid;
   place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border: 1px solid var(--c-line);
 }
 .theme__dot {
@@ -139,7 +151,8 @@ html.frame-away .frame { translate: 0 -110%; }
 }
 
 @media (max-width: 767px) {
-  .frame { flex-wrap: wrap; row-gap: 0.1rem; padding-block: 0.6rem; }
+  /* Row gap clears the nav links' 44px hit area from the CV and theme buttons above. */
+  .frame { flex-wrap: wrap; row-gap: 0.75rem; padding-block: 0.6rem; }
   .frame__nav { order: 3; width: 100%; }
   .frame__nav ul { justify-content: space-between; }
   html.frame-solid:not(.frame-up) .frame__nav { display: none; }
@@ -345,7 +358,7 @@ html.frame-away .frame { translate: 0 -110%; }
 
 .node {
   width: 100%;
-  min-height: 2.25rem;
+  min-height: 2.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -407,7 +420,7 @@ html.frame-away .frame { translate: 0 -110%; }
   .case__next { margin-top: 4.5rem; }
   .schema__lede { grid-column: 1 / -1; }
   .join { grid-template-columns: minmax(0, 5fr) minmax(0, 2fr) minmax(0, 5fr); }
-  .node { padding: 0.3rem 0.45rem; gap: 0.4rem; font-size: 0.8125rem; min-height: 2rem; }
+  .node { padding: 0.3rem 0.45rem; gap: 0.4rem; font-size: 0.8125rem; }
 }
 
 /* ---------- About ---------- */
@@ -504,7 +517,7 @@ html.frame-away .frame { translate: 0 -110%; }
 
 /* ---------- Case page: the record ---------- */
 
-.case { padding-top: calc(var(--gutter) + 5.5rem); }
+.case { padding-top: calc(var(--gutter) + 6.25rem); }
 .case__head { row-gap: 1.5rem; }
 .case__crumb { grid-column: 1 / -1; color: var(--c-muted); font-size: var(--t-s); }
 .case__title {
@@ -524,7 +537,9 @@ html.frame-away .frame { translate: 0 -110%; }
   margin: 3rem var(--gutter) 0 auto;
   border-top-width: 3px;
 }
-.case__record .entity__row { grid-template-columns: 9rem 1fr; }
+/* A record row holds at most one link: the whole row is its target, so wrapped URLs stay tappable. */
+.case__record .entity__row { position: relative; grid-template-columns: 9rem 1fr; min-height: 2.75rem; align-items: center; }
+.case__record .link::after { content: ''; position: absolute; inset: 0; }
 .case__record dt { display: block; }
 .case__record abbr { color: var(--c-accent); }
 .case__shot { margin: 5rem var(--gutter) 0; }
