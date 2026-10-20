@@ -236,7 +236,7 @@ const Relations = () => {
         )}
       </p>
       <p className='schema__note'>
-        A count of 0 means no public repo uses that stack yet.
+        A count of 0 means I use that stack at work, but no public repo shows it yet.
       </p>
     </section>
   );
